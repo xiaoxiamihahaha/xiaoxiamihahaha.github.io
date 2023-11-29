@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/README.html</loc>
+    <loc>http://canoepassed.top/README.html</loc>
     
     <lastmod>2023-11-29</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/resources/index.html</loc>
+    <loc>http://canoepassed.top/resources/index.html</loc>
     
     <lastmod>2023-11-27</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>http://canoepassed.top/about/index.html</loc>
     
     <lastmod>2023-11-27</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>http://canoepassed.top/tags/index.html</loc>
     
     <lastmod>2023-11-27</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>http://canoepassed.top/categories/index.html</loc>
     
     <lastmod>2023-11-27</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/11/25/hello-world/</loc>
+    <loc>http://canoepassed.top/2023/11/25/hello-world/</loc>
     
     <lastmod>2023-11-25</lastmod>
     
@@ -57,7 +57,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>http://canoepassed.top/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>

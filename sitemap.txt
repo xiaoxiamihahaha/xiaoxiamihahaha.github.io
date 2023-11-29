@@ -1,7 +1,7 @@
-http://example.com/README.html
-http://example.com/resources/index.html
-http://example.com/about/index.html
-http://example.com/tags/index.html
-http://example.com/categories/index.html
-http://example.com/2023/11/25/hello-world/
-http://example.com/
+http://canoepassed.top/README.html
+http://canoepassed.top/resources/index.html
+http://canoepassed.top/about/index.html
+http://canoepassed.top/tags/index.html
+http://canoepassed.top/categories/index.html
+http://canoepassed.top/2023/11/25/hello-world/
+http://canoepassed.top/
