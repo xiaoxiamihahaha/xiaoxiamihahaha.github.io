@@ -9,7 +9,7 @@
     <atom:link href="http://canoepassed.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>落花人独立，微雨燕双飞</description>
-    <pubDate>Fri, 01 Dec 2023 03:35:02 GMT</pubDate>
+    <pubDate>Sat, 02 Dec 2023 11:23:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,8 +18,22 @@
       <guid>http://canoepassed.top/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/</guid>
       <pubDate>Fri, 01 Dec 2023 03:32:23 GMT</pubDate>
       
+        
+        
+      <description>&lt;p&gt;#RSA&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;生成两个非常大的质数p和q&lt;/p&gt;
+&lt;p&gt;n &amp;#x3D; p * q&lt;/p&gt;
+&lt;p&gt;$$&lt;br&gt;计算欧拉函数值&#92;phi(n)，&lt;br&gt;$$&lt;/p&gt;
+&lt;p&gt;$$&lt;br&gt;&#92;phi(n)&amp;#x3D;(p-1)*(q-1)&lt;br&gt;</description>
+        
       
       
+      
+      <content:encoded><![CDATA[<p>#RSA</p><blockquote><p>生成两个非常大的质数p和q</p><p>n &#x3D; p * q</p><p>$$<br>计算欧拉函数值\phi(n)，<br>$$</p><p>$$<br>\phi(n)&#x3D;(p-1)*(q-1)<br>$$</p></blockquote>]]></content:encoded>
+      
+      
+      <category domain="http://canoepassed.top/categories/Crypto/">Crypto</category>
       
       
       <category domain="http://canoepassed.top/tags/Crypto/">Crypto</category>

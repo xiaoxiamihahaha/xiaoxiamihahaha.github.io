@@ -8,8 +8,14 @@
       <link href="/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
       <url>/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>#RSA</p><blockquote><p>生成两个非常大的质数p和q</p><p>n &#x3D; p * q</p><p>$$<br>计算欧拉函数值\phi(n)，<br>$$</p><p>$$<br>\phi(n)&#x3D;(p-1)*(q-1)<br>$$</p></blockquote>]]></content>
       
+      
+      <categories>
+          
+          <category> Crypto </category>
+          
+      </categories>
       
       
         <tags>

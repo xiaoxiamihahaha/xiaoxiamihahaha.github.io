@@ -4,6 +4,15 @@
   <url>
     <loc>http://canoepassed.top/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/</loc>
     
+    <lastmod>2023-12-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://canoepassed.top/2023/11/25/hello-world/</loc>
+    
     <lastmod>2023-12-01</lastmod>
     
     <changefreq>monthly</changefreq>
@@ -55,19 +64,10 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://canoepassed.top/2023/11/25/hello-world/</loc>
-    
-    <lastmod>2023-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://canoepassed.top/</loc>
-    <lastmod>2023-12-01</lastmod>
+    <lastmod>2023-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -75,11 +75,25 @@
   
   <url>
     <loc>http://canoepassed.top/tags/Crypto/</loc>
-    <lastmod>2023-12-01</lastmod>
+    <lastmod>2023-12-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
+  
+  <url>
+    <loc>http://canoepassed.top/categories/blog/</loc>
+    <lastmod>2023-12-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://canoepassed.top/categories/Crypto/</loc>
+    <lastmod>2023-12-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
