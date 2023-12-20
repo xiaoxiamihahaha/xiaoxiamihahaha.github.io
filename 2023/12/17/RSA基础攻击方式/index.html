@@ -23,17 +23,20 @@
     var CONFIG = {"hostname":"canoepassed.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="晚风吹，月夜美">
-<meta property="og:url" content="http://canoepassed.top/README.html">
+  <meta name="description" content="一、已知p,q,e以及密文c 解密脚本: 12345678910111213from Crypto.Util.number import *  #使用long_to_bytes函数from gmpy2 import * p&#x3D;...q&#x3D;...c&#x3D;...e &#x3D; 65537n&#x3D;p*qN&#x3D;(p-1)*(q-1) #求解p,q的欧拉函数Nd&#x3D;gmpy2.invert(e,N) #求解模逆元m&#x3D;pow(c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSA基础攻击方式">
+<meta property="og:url" content="http://canoepassed.top/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="晚风吹，月夜美">
+<meta property="og:description" content="一、已知p,q,e以及密文c 解密脚本: 12345678910111213from Crypto.Util.number import *  #使用long_to_bytes函数from gmpy2 import * p&#x3D;...q&#x3D;...c&#x3D;...e &#x3D; 65537n&#x3D;p*qN&#x3D;(p-1)*(q-1) #求解p,q的欧拉函数Nd&#x3D;gmpy2.invert(e,N) #求解模逆元m&#x3D;pow(c">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-29T11:56:01.466Z">
-<meta property="article:modified_time" content="2023-11-29T11:55:57.439Z">
+<meta property="article:published_time" content="2023-12-17T06:13:21.000Z">
+<meta property="article:modified_time" content="2023-12-17T06:48:47.596Z">
 <meta property="article:author" content="小虾米">
+<meta property="article:tag" content="RSA">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://canoepassed.top/README">
+<link rel="canonical" href="http://canoepassed.top/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -41,13 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title> | 晚风吹，月夜美
-</title>
+  <title>RSA基础攻击方式 | 晚风吹，月夜美</title>
   
 
 
@@ -78,7 +80,119 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/rss2.xml" title="晚风吹，月夜美" type="application/rss+xml">
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/rss2.xml" title="晚风吹，月夜美" type="application/rss+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -189,44 +303,208 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">
-</h1>
-
-<div class="post-meta">
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小虾米">
+      <meta itemprop="description" content="落花人独立，微雨燕双飞">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晚风吹，月夜美">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RSA基础攻击方式
+        </h1>
 
-      
-      
-      
-      <div class="post-body">
+        <div class="post-meta">
           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
+              <time title="创建时间：2023-12-17 14:13:21 / 修改时间：14:48:47" itemprop="dateCreated datePublished" datetime="2023-12-17T14:13:21+08:00">2023-12-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Crypto/" itemprop="url" rel="index"><span itemprop="name">Crypto</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>989</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="一已知pqe以及密文c">一、已知p,q,e以及密文c</h2>
+<p>解密脚本:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *  #使用long_to_bytes函数</span><br><span class="line">from gmpy2 import * </span><br><span class="line"></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">c=...</span><br><span class="line">e = 65537</span><br><span class="line">n=p*q</span><br><span class="line">N=(p-1)*(q-1) #求解p,q的欧拉函数N</span><br><span class="line">d=gmpy2.invert(e,N) #求解模逆元</span><br><span class="line">m=pow(c,d,n) #解密</span><br><span class="line">flag=long_to_bytes(m) #将整数转换成字节序列</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<h2 id="二pq很接近">二、p,q很接近</h2>
+<span id="more"></span>
+<p>1.因为p,q很接近，所以p,q在n的平方根附近，此时可通过爆破求得p,q</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">from gmpy2 import *</span><br><span class="line">n=...</span><br><span class="line">c=...</span><br><span class="line">e=65537</span><br><span class="line">sqr=iroot(n,2) #iroot为gmpy2中的函数，用于求n次方根，此为求n的平方根</span><br><span class="line">for i in range(10000): </span><br><span class="line">    if n%(sqr+i)==0: #因为p，q很接近，所以p,q在sqr附近，此时可以爆破p</span><br><span class="line">        p=sqr+i</span><br><span class="line">        q=n//p</span><br><span class="line">        print('p=', p)</span><br><span class="line">        print('q=', q)</span><br><span class="line">        break</span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">d=invert(e,(p-1)*(q-1)) </span><br><span class="line">print(long_to_bytes(powmod(c,d,n)))</span><br></pre></td></tr></table></figure>
+<p>2.使用工具yafu分解求得p,q</p>
+<p>(yafu下载网址：https://sourceforge.net/projects/yafu/)，yafu使用方法<br>
+1.打开yafu安装目录，右键在终端中运行<br>
+2.输入.-x64.exe后回车，<br>
+3.输入factor(...),分解得到p,q<br>
+进行RSA解密，得到m，最后一步进行base64解密得到flag<br>
+</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *  #使用long_to_bytes函数</span><br><span class="line">from gmpy2 import * </span><br><span class="line"></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">c=...</span><br><span class="line">e=...</span><br><span class="line">n=p*q</span><br><span class="line">N=(p-1)*(q-1) #求解p,q的欧拉函数N</span><br><span class="line">d=gmpy2.invert(e,N) #求解模逆元</span><br><span class="line">m=pow(c,d,n) #解密</span><br><span class="line">flag=long_to_bytes(m) #将整数转换成字节序列</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+    
+     
+      <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+     
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="小虾米 微信支付">
+        <p>微信支付</p>
       </div>
       
-      
-      
-    </div>
-    
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="小虾米 支付宝">
+        <p>支付宝</p>
+      </div>
 
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小虾米
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://canoepassed.top/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" title="RSA基础攻击方式">http://canoepassed.top/2023/12/17/RSA基础攻击方式/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/RSA/" rel="tag"># RSA</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" rel="prev" title="RSA算法详解">
+      <i class="fa fa-chevron-left"></i> RSA算法详解
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
@@ -295,6 +573,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%B7%B2%E7%9F%A5pqe%E4%BB%A5%E5%8F%8A%E5%AF%86%E6%96%87c"><span class="nav-number">1.</span> <span class="nav-text">一、已知p,q,e以及密文c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8Cpq%E5%BE%88%E6%8E%A5%E8%BF%91"><span class="nav-number">2.</span> <span class="nav-text">二、p,q很接近</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -483,6 +762,59 @@ $(document).ready(function() {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
