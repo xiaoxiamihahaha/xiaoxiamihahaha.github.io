@@ -23,30 +23,33 @@
     var CONFIG = {"hostname":"canoepassed.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="落花人独立，微雨燕双飞">
-<meta property="og:type" content="website">
-<meta property="og:title" content="晚风吹，月夜美">
-<meta property="og:url" content="http://canoepassed.top/index.html">
+  <meta name="description" content="1.p,q很接近 1234567891011121314151617from Crypto.Util.number import *from gmpy2 import *n&#x3D;...c&#x3D;...e&#x3D;65537sqr&#x3D;iroot(n,2)for i in range(10000):    if n%(sqr+i)&#x3D;&#x3D;0:        p&#x3D;sqr+i        q&#x3D;n&#x2F;&#x2F;p        prin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSA攻击脚本">
+<meta property="og:url" content="http://canoepassed.top/2024/03/03/RSA%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="晚风吹，月夜美">
-<meta property="og:description" content="落花人独立，微雨燕双飞">
+<meta property="og:description" content="1.p,q很接近 1234567891011121314151617from Crypto.Util.number import *from gmpy2 import *n&#x3D;...c&#x3D;...e&#x3D;65537sqr&#x3D;iroot(n,2)for i in range(10000):    if n%(sqr+i)&#x3D;&#x3D;0:        p&#x3D;sqr+i        q&#x3D;n&#x2F;&#x2F;p        prin">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-03T03:19:35.000Z">
+<meta property="article:modified_time" content="2024-03-03T04:57:35.557Z">
 <meta property="article:author" content="小虾米">
+<meta property="article:tag" content="RSA">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://canoepassed.top/">
+<link rel="canonical" href="http://canoepassed.top/2024/03/03/RSA%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>晚风吹，月夜美</title>
+  <title>RSA攻击脚本 | 晚风吹，月夜美</title>
   
 
 
@@ -301,9 +304,10 @@ mjx-container[display="true"] + br {
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -319,10 +323,9 @@ mjx-container[display="true"] + br {
       <meta itemprop="name" content="晚风吹，月夜美">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/03/RSA%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">RSA攻击脚本</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          RSA攻击脚本
+        </h1>
 
         <div class="post-meta">
           
@@ -337,6 +340,13 @@ mjx-container[display="true"] + br {
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -375,7 +385,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="pq很接近">1.p,q很接近</h2>
+        <h2 id="pq很接近">1.p,q很接近</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line">n=...</span><br><span class="line">c=...</span><br><span class="line">e=<span class="number">65537</span></span><br><span class="line">sqr=iroot(n,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):</span><br><span class="line">    <span class="keyword">if</span> n%(sqr+i)==<span class="number">0</span>:</span><br><span class="line">        p=sqr+i</span><br><span class="line">        q=n//p</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'p='</span>, p)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'q='</span>, q)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">d=invert(e,(p-<span class="number">1</span>)*(q-<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(powmod(c,d,n)))</span><br></pre></td></tr></table></figure>
 <h2 id="rsa-dp泄露攻击">2.RSA dp泄露攻击</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line"></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">n = <span class="number">248254007851526241177721526698901802985832766176221609612258877371620580060433101538328030305219918697643619814200930679612109885533801335348445023751670478437073055544724280684733298051599167660303645183146161497485358633681492129668802402065797789905550489547645118787266601929429724133167768465309665906113</span></span><br><span class="line">dp = <span class="number">905074498052346904643025132879518330691925174573054004621877253318682675055421970943552016695528560364834446303196939207056642927148093290374440210503657</span></span><br><span class="line">c = <span class="number">140423670976252696807533673586209400575664282100684119784203527124521188996403826597436883766041879067494280957410201958935737360380801845453829293997433414188838725751796261702622028587211560353362847191060306578510511380965162133472698713063592621028959167072781482562673683090590521214218071160287665180751</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, e):</span><br><span class="line">    <span class="keyword">if</span> (dp * e - <span class="number">1</span>) % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> n % (((dp * e - <span class="number">1</span>) // i) + <span class="number">1</span>) == <span class="number">0</span>:</span><br><span class="line">            p = ((dp * e - <span class="number">1</span>) // i) + <span class="number">1</span></span><br><span class="line">            q = n // (((dp * e - <span class="number">1</span>) // i) + <span class="number">1</span>)</span><br><span class="line">            d = gmpy2.invert(e, (p - <span class="number">1</span>) * (q - <span class="number">1</span>))</span><br><span class="line">            m = <span class="built_in">pow</span>(c, d, n)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br></pre></td></tr></table></figure>
@@ -406,7 +416,6 @@ mjx-container[display="true"] + br {
 <h2 id="费马小定理_script">15.费马小定理_script</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> isPrime, sieve_base <span class="keyword">as</span> primes</span><br><span class="line"></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">n = <span class="number">32849718197337581823002243717057659218502519004386996660885100592872201948834155543125924395614928962750579667346279456710633774501407292473006312537723894221717638059058796679686953564471994009285384798450493756900459225040360430847240975678450171551048783818642467506711424027848778367427338647282428667393241157151675410661015044633282064056800913282016363415202171926089293431012379261585078566301060173689328363696699811123592090204578098276704877408688525618732848817623879899628629300385790344366046641825507767709276622692835393219811283244303899850483748651722336996164724553364097066493953127153066970594638491950199605713033004684970381605908909693802373826516622872100822213645899846325022476318425889580091613323747640467299866189070780620292627043349618839126919699862580579994887507733838561768581933029077488033326056066378869170169389819542928899483936705521710423905128732013121538495096959944889076705471928490092476616709838980562233255542325528398956185421193665359897664110835645928646616337700617883946369110702443135980068553511927115723157704586595844927607636003501038871748639417378062348085980873502535098755568810971926925447913858894180171498580131088992227637341857123607600275137768132347158657063692388249513</span></span><br><span class="line">c = <span class="number">26308018356739853895382240109968894175166731283702927002165268998773708335216338997058314157717147131083296551313334042509806229853341488461087009955203854253313827608275460592785607739091992591431080342664081962030557042784864074533380701014585315663218783130162376176094773010478159362434331787279303302718098735574605469803801873109982473258207444342330633191849040553550708886593340770753064322410889048135425025715982196600650740987076486540674090923181664281515197679745907830107684777248532278645343716263686014941081417914622724906314960249945105011301731247324601620886782967217339340393853616450077105125391982689986178342417223392217085276465471102737594719932347242482670320801063191869471318313514407997326350065187904154229557706351355052446027159972546737213451422978211055778164578782156428466626894026103053360431281644645515155471301826844754338802352846095293421718249819728205538534652212984831283642472071669494851823123552827380737798609829706225744376667082534026874483482483127491533474306552210039386256062116345785870668331513725792053302188276682550672663353937781055621860101624242216671635824311412793495965628876036344731733142759495348248970313655381407241457118743532311394697763283681852908564387282605279108</span></span><br><span class="line"><span class="comment">#primes为前10000个素数的列表</span></span><br><span class="line"><span class="comment">#计算prd = ∏ primes</span></span><br><span class="line">prd = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> primes:</span><br><span class="line">    prd *= i</span><br><span class="line"><span class="comment">#p为(2^prd-1)和n的公约数</span></span><br><span class="line">p = gmpy2.gcd(gmpy2.powmod(<span class="number">2</span>,prd,n)-<span class="number">1</span>,n)</span><br><span class="line">q = n // p</span><br><span class="line">d = gmpy2.invert(e,(p-<span class="number">1</span>)*(q-<span class="number">1</span>))    <span class="comment">#计算私钥d</span></span><br><span class="line">m = gmpy2.powmod(c, d, n)    <span class="comment">#解密</span></span><br><span class="line"></span><br><span class="line">flag = binascii.unhexlify(<span class="built_in">hex</span>(m)[<span class="number">2</span>:])</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
@@ -414,366 +423,116 @@ mjx-container[display="true"] + br {
     
     
      
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+      <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+     
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
       
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/01/31/%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%BC%BA%E7%BD%91%E6%9D%AFcrypto%E9%83%A8%E5%88%86wp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="小虾米">
-      <meta itemprop="description" content="落花人独立，微雨燕双飞">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晚风吹，月夜美">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/01/31/%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%BC%BA%E7%BD%91%E6%9D%AFcrypto%E9%83%A8%E5%88%86wp/" class="post-title-link" itemprop="url">第七届强网杯crypto部分wp</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-01-31 09:31:56 / 修改时间：11:20:07" itemprop="dateCreated datePublished" datetime="2024-01-31T09:31:56+08:00">2024-01-31</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/01/31/%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%BC%BA%E7%BD%91%E6%9D%AFcrypto%E9%83%A8%E5%88%86wp/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/31/%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%BC%BA%E7%BD%91%E6%9D%AFcrypto%E9%83%A8%E5%88%86wp/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="小虾米 微信支付">
+        <p>微信支付</p>
+      </div>
       
-          <h2 id="not_only_rsa">1.not_only_RSA:</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">n = <span class="number">6249734963373034215610144758924910630356277447014258270888329547267471837899275103421406467763122499270790512099702898939814547982931674247240623063334781529511973585977522269522704997379194673181703247780179146749499072297334876619475914747479522310651303344623434565831770309615574478274456549054332451773452773119453059618433160299319070430295124113199473337940505806777950838270849</span></span><br><span class="line">e = <span class="number">641747</span></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line"></span><br><span class="line">flag = flag + os.urandom(n.bit_length() // <span class="number">8</span> - <span class="built_in">len</span>(flag) - <span class="number">1</span>)</span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line"></span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'out.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{n = }</span>"</span>, file=f)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{e = }</span>"</span>, file=f)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{c = }</span>"</span>, file=f)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong><em>*n是一个质数5次方，可以求解1和C的根后进行组合出所有C的根，sage脚本如下：*</em></strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span>  long_to_bytes</span><br><span class="line">p=<span class="number">91027438112295439314606669837102361953591324472804851543344131406676387779969</span></span><br><span class="line">e = <span class="number">641747</span></span><br><span class="line">c = <span class="number">730024611795626517480532940587152891926416120514706825368440230330259913837764632826884065065554839415540061752397144140563698277864414584568812699048873820551131185796851863064509294123861487954267708318027370912496252338232193619491860340395824180108335802813022066531232025997349683725357024257420090981323217296019482516072036780365510855555146547481407283231721904830868033930943</span></span><br><span class="line">n=p^<span class="number">5</span></span><br><span class="line">K=Zmod(p^<span class="number">5</span>)</span><br><span class="line">a=K(c).nth_root(e)</span><br><span class="line">b=K(<span class="number">1</span>).nth_root(e)</span><br><span class="line">a=<span class="built_in">int</span>(a)</span><br><span class="line">b=<span class="built_in">int</span>(b)</span><br><span class="line"><span class="built_in">print</span>(b,a)</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(e)):</span><br><span class="line">  a=(a*b)%n</span><br><span class="line">  m=long_to_bytes(<span class="built_in">int</span>(a))</span><br><span class="line">  <span class="keyword">if</span> <span class="string">b"flag"</span> <span class="keyword">in</span> m:</span><br><span class="line">    <span class="built_in">print</span>(m)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#flag{c19c3ec0-d489-4bbb-83fc-bc0419a6822a}</span></span><br></pre></td></tr></table></figure>
-<h2 id="discrete_log">2.<strong>discrete_log：</strong></h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/01/31/%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%BC%BA%E7%BD%91%E6%9D%AFcrypto%E9%83%A8%E5%88%86wp/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="小虾米 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
         
-      
-    </div>
 
-    
-    
-    
-    
-     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小虾米
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://canoepassed.top/2024/03/03/RSA%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC/" title="RSA攻击脚本">http://canoepassed.top/2024/03/03/RSA攻击脚本/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="小虾米">
-      <meta itemprop="description" content="落花人独立，微雨燕双飞">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晚风吹，月夜美">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">RSA基础攻击方式</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-17 14:13:21" itemprop="dateCreated datePublished" datetime="2023-12-17T14:13:21+08:00">2023-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-08 22:37:43" itemprop="dateModified" datetime="2024-02-08T22:37:43+08:00">2024-02-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Crypto/" itemprop="url" rel="index"><span itemprop="name">Crypto</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>989</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一已知pqe以及密文c">一、已知p,q,e以及密文c</h2>
-<p>解密脚本:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *  #使用long_to_bytes函数</span><br><span class="line">from gmpy2 import * </span><br><span class="line"></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">c=...</span><br><span class="line">e = 65537</span><br><span class="line">n=p*q</span><br><span class="line">N=(p-1)*(q-1) #求解p,q的欧拉函数N</span><br><span class="line">d=gmpy2.invert(e,N) #求解模逆元</span><br><span class="line">m=pow(c,d,n) #解密</span><br><span class="line">flag=long_to_bytes(m) #将整数转换成字节序列</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
-<h2 id="二pq很接近">二、p,q很接近</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-    
-     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">
+    <div class="social-list">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="小虾米">
-      <meta itemprop="description" content="落花人独立，微雨燕双飞">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晚风吹，月夜美">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">RSA算法详解</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-01 11:32:23" itemprop="dateCreated datePublished" datetime="2023-12-01T11:32:23+08:00">2023-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-17 14:49:13" itemprop="dateModified" datetime="2023-12-17T14:49:13+08:00">2023-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Crypto/" itemprop="url" rel="index"><span itemprop="name">Crypto</span></a>
-                </span>
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
             </span>
 
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
+            <span class="label">RSS</span>
+          </a>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一rsa加解密流程">一、RSA加解密流程</h2>
-<p>要加密的信息为m，加密后的信息为c<br>
-1.生成两个非常大的质数p和q<br>
-2.n = p * q<br>
-3.计算欧拉函数值φ(n) ， φ(n) =(p-1)(q-1)  4.公钥参数e和私钥参数d，可由欧拉函数值计算出<br>
-公钥e： 1 &lt; e &lt; φ(n) e和φ(n)互质（为给定数值）<br>
-私钥d: e对于φ(n)的乘法逆元(模反元素)，e*d mod φ(n) ≡ 1<br>
-则ed-1≡ k φ(n)<br>
-</p>
-<h4 id="加密方式">加密方式<br>
-</h4>
-<p>c≡ <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="2.92ex" height="1.553ex" role="img" focusable="false" viewBox="0 -675.5 1290.5 686.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(911,363) scale(0.707)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g></g></g></g></svg></mjx-container> mod n<br>
-规定m小于n ,(涉及到padding)<br>
-</p>
-<h4 id="解密方式">解密方式<br>
-</h4>
-<p>m≡<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.999ex" height="1.956ex" role="img" focusable="false" viewBox="0 -853.7 883.7 864.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g><g data-mml-node="mi" transform="translate(466,363) scale(0.707)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g></g></g></g></svg></mjx-container> mod n<br>
-</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
     </div>
+  </div>
 
-    
-    
-    
-    
-     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/RSA/" rel="tag"># RSA</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/01/31/%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%BC%BA%E7%BD%91%E6%9D%AFcrypto%E9%83%A8%E5%88%86wp/" rel="prev" title="第七届强网杯crypto部分wp">
+      <i class="fa fa-chevron-left"></i> 第七届强网杯crypto部分wp
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
 
           </div>
           
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-livere">livere</a></li>
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane livere" id="comment-livere">
+              
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTI1NC8zNTcxNg=="></div>
+  </div>
+  
+            </div>
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="valine-comments"></div>
+            </div>
+        </div>
+      </div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -820,6 +579,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pq%E5%BE%88%E6%8E%A5%E8%BF%91"><span class="nav-number">1.</span> <span class="nav-text">1.p,q很接近</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa-dp%E6%B3%84%E9%9C%B2%E6%94%BB%E5%87%BB"><span class="nav-number">2.</span> <span class="nav-text">2.RSA dp泄露攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dp-dq-%E6%B3%84%E9%9C%B2%E6%94%BB%E5%87%BB"><span class="nav-number">3.</span> <span class="nav-text">3.dp &amp; dq 泄露攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa%E4%BD%8E%E5%8A%A0%E5%AF%86%E6%8C%87%E6%95%B0%E6%94%BB%E5%87%BB_scriptm%E7%9A%84e%E6%AC%A1%E6%96%B9%E5%A4%A7%E4%BA%8En"><span class="nav-number">4.</span> <span class="nav-text">4.RSA低加密指数攻击_script(m的e次方大于N)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa%E4%BD%8E%E5%8A%A0%E5%AF%86%E6%8C%87%E6%95%B0%E6%94%BB%E5%87%BB_scriptm%E7%9A%84e%E6%AC%A1%E6%96%B9%E5%B0%8F%E4%BA%8En"><span class="nav-number">5.</span> <span class="nav-text">5.RSA低加密指数攻击_script（m的e次方小于N）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa%E5%85%B1%E4%BA%AB%E7%B4%A0%E6%95%B0_1_script"><span class="nav-number">6.</span> <span class="nav-text">6.RSA共享素数_1_script</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa%E5%85%B1%E4%BA%AB%E7%B4%A0%E6%95%B0_2_script"><span class="nav-number">7.</span> <span class="nav-text">7.RSA共享素数_2_script</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB_script"><span class="nav-number">8.</span> <span class="nav-text">8.RSA共模攻击_script</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa%E5%B7%B2%E7%9F%A5npc%E7%88%86%E7%A0%B4e_scriptpython2"><span class="nav-number">9.</span> <span class="nav-text">9.RSA已知n,pc爆破e_script(python2)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa%E5%B7%B2%E7%9F%A5npc%E7%88%86%E7%A0%B4e_scriptpython3"><span class="nav-number">10.</span> <span class="nav-text">10.RSA已知n,pc爆破e_script(python3)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa%E7%88%86%E7%A0%B4e_script"><span class="nav-number">11.</span> <span class="nav-text">11.RSA爆破e_script</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8E%E5%8A%A0%E5%AF%86%E6%8C%87%E6%95%B0%E5%B9%BF%E6%92%AD%E6%94%BB%E5%87%BB_script%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86"><span class="nav-number">12.</span> <span class="nav-text">12.低加密指数广播攻击_script(中国剩余定理)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8E%E5%8A%A0%E5%AF%86%E6%8C%87%E6%95%B0%E5%B9%BF%E6%92%AD%E6%94%BB%E5%87%BB_script%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%862"><span class="nav-number">13.</span> <span class="nav-text">13.低加密指数广播攻击_script(中国剩余定理)2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E5%AE%9Anedpc%E7%88%86%E7%A0%B4e"><span class="nav-number">14.</span> <span class="nav-text">14.给定n,e,dp,c爆破e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86_script"><span class="nav-number">15.</span> <span class="nav-text">15.费马小定理_script</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1064,6 +824,21 @@ $(document).ready(function() {
 
   
 
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
 
 <script>
