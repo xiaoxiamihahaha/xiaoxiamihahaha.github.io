@@ -26,7 +26,7 @@
   <meta name="description" content="一、RSA加解密流程 要加密的信息为m，加密后的信息为c 1.生成两个非常大的质数p和q 2.n &#x3D; p * q 3.计算欧拉函数值φ(n) ， φ(n) &#x3D;(p-1)(q-1)  4.公钥参数e和私钥参数d，可由欧拉函数值计算出 公钥e： 1 &lt; e &lt; φ(n) e和φ(n)互质（为给定数值） 私钥d: e对于φ(n)的乘法逆元(模反元素)，e*d mod φ(n) ≡">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA算法详解">
-<meta property="og:url" content="http://canoepassed.top/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:url" content="http://canoepassed.top/2023/12/01/Crypto/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="su的ctfer进阶之路">
 <meta property="og:description" content="一、RSA加解密流程 要加密的信息为m，加密后的信息为c 1.生成两个非常大的质数p和q 2.n &#x3D; p * q 3.计算欧拉函数值φ(n) ， φ(n) &#x3D;(p-1)(q-1)  4.公钥参数e和私钥参数d，可由欧拉函数值计算出 公钥e： 1 &lt; e &lt; φ(n) e和φ(n)互质（为给定数值） 私钥d: e对于φ(n)的乘法逆元(模反元素)，e*d mod φ(n) ≡">
 <meta property="og:locale" content="zh_CN">
@@ -36,7 +36,7 @@
 <meta property="article:tag" content="RSA">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://canoepassed.top/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">
+<link rel="canonical" href="http://canoepassed.top/2023/12/01/Crypto/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -311,7 +311,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2023/12/01/Crypto/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -370,8 +370,8 @@ mjx-container[display="true"] + br {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/12/01/Crypto/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/01/Crypto/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -485,7 +485,7 @@ m ≡<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg sty
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://canoepassed.top/2023/12/01/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="RSA算法详解">http://canoepassed.top/2023/12/01/RSA算法详解/</a>
+    <a href="http://canoepassed.top/2023/12/01/Crypto/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="RSA算法详解">http://canoepassed.top/2023/12/01/Crypto/RSA算法详解/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -525,7 +525,7 @@ m ≡<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg sty
     <div class="post-nav">
       <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2023/12/17/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" rel="next" title="RSA基础攻击方式">
+    <a href="/2023/12/17/Crypto/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" rel="next" title="RSA基础攻击方式">
       RSA基础攻击方式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
