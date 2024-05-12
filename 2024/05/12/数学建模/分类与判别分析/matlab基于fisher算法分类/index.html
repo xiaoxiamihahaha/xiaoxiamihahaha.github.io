@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"canoepassed.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="离散对数 基本定义 在了解离散对数时，我们先来了解几个基本定义。 定义 1 在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y&#x3D;gk，我们称 k 为 y 在群 G 中的对数。 定义 2 设 m≥1，(a,m)&#x3D;1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。 定义 3 当 δm(a)">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556% &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;Fisher&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;% X:  训练样本% x:  待判样本% N:  每">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RSA离散对数攻击">
-<meta property="og:url" content="http://canoepassed.top/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/index.html">
+<meta property="og:title" content="matlab基于fisher算法分类">
+<meta property="og:url" content="http://canoepassed.top/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%9F%BA%E4%BA%8Efisher%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/index.html">
 <meta property="og:site_name" content="su的ctfer进阶之路">
-<meta property="og:description" content="离散对数 基本定义 在了解离散对数时，我们先来了解几个基本定义。 定义 1 在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y&#x3D;gk，我们称 k 为 y 在群 G 中的对数。 定义 2 设 m≥1，(a,m)&#x3D;1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。 定义 3 当 δm(a)">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556% &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;Fisher&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;% X:  训练样本% x:  待判样本% N:  每">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-06T12:58:48.000Z">
-<meta property="article:modified_time" content="2024-05-12T08:16:01.607Z">
+<meta property="article:published_time" content="2024-05-12T09:44:08.000Z">
+<meta property="article:modified_time" content="2024-05-12T09:58:29.843Z">
 <meta property="article:author" content="小虾米">
-<meta property="article:tag" content="RSA">
+<meta property="article:tag" content="数学建模">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://canoepassed.top/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/">
+<link rel="canonical" href="http://canoepassed.top/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%9F%BA%E4%BA%8Efisher%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>RSA离散对数攻击 | su的ctfer进阶之路</title>
+  <title>matlab基于fisher算法分类 | su的ctfer进阶之路</title>
   
 
 
@@ -311,7 +311,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/">
+    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%9F%BA%E4%BA%8Efisher%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -324,7 +324,7 @@ mjx-container[display="true"] + br {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          RSA离散对数攻击
+          matlab基于fisher算法分类
         </h1>
 
         <div class="post-meta">
@@ -334,23 +334,17 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-03-06 20:58:48" itemprop="dateCreated datePublished" datetime="2024-03-06T20:58:48+08:00">2024-03-06</time>
+              <time title="创建时间：2024-05-12 17:44:08 / 修改时间：17:58:29" itemprop="dateCreated datePublished" datetime="2024-05-12T17:44:08+08:00">2024-05-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-12 16:16:01" itemprop="dateModified" datetime="2024-05-12T16:16:01+08:00">2024-05-12</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Crypto/" itemprop="url" rel="index"><span itemprop="name">Crypto</span></a>
+                  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB/" itemprop="url" rel="index"><span itemprop="name">数学建模分类与判别</span></a>
                 </span>
             </span>
 
@@ -370,8 +364,8 @@ mjx-container[display="true"] + br {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%9F%BA%E4%BA%8Efisher%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%9F%BA%E4%BA%8Efisher%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -381,14 +375,14 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -400,43 +394,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="离散对数">离散对数</h1>
-<h2 id="基本定义">基本定义</h2>
-<p>在了解离散对数时，我们先来了解几个基本定义。</p>
-<p><strong>定义 1</strong></p>
-<p>在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y=gk，我们称 k 为 y 在群 G 中的对数。</p>
-<p><strong>定义 2</strong></p>
-<p>设 m≥1，(a,m)=1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。</p>
-<p><strong>定义 3</strong></p>
-<p>当 δm(a)=φ(m)时，称 a 是模 m 的原根，简称 m 的原根。</p>
-<span id="more"></span>
-<h2 id="一些性质">一些性质</h2>
-<p><strong>性质 1</strong></p>
-<p>使得 ad≡1(modm)成立的最小正整数 d ，必有d∣φ(m)。</p>
-<p><strong>性质 2</strong></p>
-<p>模 m剩余系存在原根的充要条件是 m=2,4,pα,2pα ，其中 p 为奇素数， α为正整数。</p>
-<h2 id="离散对数问题">离散对数问题</h2>
-<p>已知 g,p,y，对于方程 y≡gx(modp) ，求解 x 是一个难解问题。但是当 p 具有一定的特性时就可能可以求解，比如，这个群的阶是一个光滑数。正是上述这个问题构成了目前很大一部分现代密码学，包括 Diffie–Hellman 密钥交换， ElGamal 算法，ECC 等。</p>
-<h2 id="离散对数求解方式">离散对数求解方式</h2>
-<h3 id="暴力破解">暴力破解</h3>
-<p>给定 y≡gx(modp) ，我们可以暴力枚举 x 从而得到真正的 x的值。</p>
-<h3 id="baby-step-giant-step">Baby-step giant-step</h3>
-<p>这一方法通常被称为小步大步法，这一方法使用了中间相遇攻击的思想。</p>
-<p>我们可以令 x=im+j，其中 m=⌈√n⌉ ，那么整数 i 和 j 都在 0 到 m 的范围内。</p>
-<p>因此 y=gx=gim+j</p>
-<p>也就是y(g−m)i=gj</p>
-<p>那么我们就可以枚举所有的 j 并进行计算，并将其存储到一个集合 S 中，然后我们再次枚举 i，计算 y(g−m)i，一旦我们发现计算的结果在集合 S 中，则说明我们得到了一个碰撞，进而得到了 i 和 j。</p>
-<p>这显然是一个时间与空间的折中的方式，我们将一个 O(n)的时间复杂度，O(1) 空间复杂度的算法转换为了一个O(√n) 的时间复杂度O(√n) 的空间复杂度的算法。</p>
-<p>其中</p>
-<ul>
-<li>每一次 j 的增加表示 “baby-step”，一次乘上 g。</li>
-</ul>
-<p>每一次 i 的增加表示 “giant-step”，一次乘上 g−m。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def bsgs(g, y, p):</span><br><span class="line">    m = int(ceil(sqrt(p - 1)))</span><br><span class="line">    S = {pow(g, j, p): j for j in range(m)}</span><br><span class="line">    gs = pow(g, p - 1 - m, p)</span><br><span class="line">    for i in range(m):</span><br><span class="line">        if y in S:</span><br><span class="line">            return i * m + S[y]</span><br><span class="line">        y = y * gs % p</span><br><span class="line">    return None</span><br></pre></td></tr></table></figure>
-<h3 id="pollards-ρ-algorithm">Pollard’s ρ algorithm</h3>
-<p>我们可以以O(√n) 的时间复杂度和O(1) 的空间复杂度来解决上述问题。具体原理请自行谷歌。</p>
-<h3 id="pollards-kangaroo-algorithm">Pollard’s kangaroo algorithm</h3>
-<p>如果我们知道 x 的范围为 a≤x≤b，那么我们可以以O(√b−a) 的时间复杂度解决上述问题。具体原理请自行谷歌。</p>
+        <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% ===============================Fisher===============================</span></span><br><span class="line"><span class="comment">% X:  训练样本</span></span><br><span class="line"><span class="comment">% x:  待判样本</span></span><br><span class="line"><span class="comment">% N:  每类样本数</span></span><br><span class="line"><span class="comment">% W： 权向量</span></span><br><span class="line"><span class="comment">% 对应课本Page88</span></span><br><span class="line"><span class="comment">% =====================================================================</span></span><br><span class="line">clear,close all;</span><br><span class="line">N=<span class="number">150</span>;</span><br><span class="line">X = [<span class="built_in">randn</span>(N,<span class="number">2</span>)+<span class="number">2</span>*<span class="built_in">ones</span>(N,<span class="number">2</span>);...</span><br><span class="line">     <span class="built_in">randn</span>(N,<span class="number">2</span>)<span class="number">-2</span>*<span class="built_in">ones</span>(N,<span class="number">2</span>);];</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line">fig=<span class="built_in">figure</span>;</span><br><span class="line"><span class="built_in">plot</span>(X(<span class="number">1</span>:N,<span class="number">1</span>),X(<span class="number">1</span>:N,<span class="number">2</span>),<span class="string">'r.'</span>)</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(X(N+<span class="number">1</span>:<span class="number">2</span>*N,<span class="number">1</span>),X(N+<span class="number">1</span>:<span class="number">2</span>*N,<span class="number">2</span>),<span class="string">'b.'</span>)</span><br><span class="line">title(<span class="string">'初始样本分布图'</span>),axis([<span class="number">-10</span>,<span class="number">10</span>,<span class="number">-10</span>,<span class="number">10</span>])</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line">m1=<span class="built_in">mean</span>(X(<span class="number">1</span>:N,:));</span><br><span class="line">m2=<span class="built_in">mean</span>(X(N+<span class="number">1</span>:<span class="number">2</span>*N,:));</span><br><span class="line">S1=<span class="number">0</span>;S2=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:N</span><br><span class="line">    S1=S1+(X(<span class="built_in">i</span>,:)-m1)*(X(<span class="built_in">i</span>,:)-m1)';</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=N+<span class="number">1</span>:<span class="number">2</span>*N</span><br><span class="line">    S1=S1+(X(<span class="built_in">i</span>,:)-m1)*(X(<span class="built_in">i</span>,:)-m1)';</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">Sw=S1+S2;</span><br><span class="line">W=inv(Sw)*(m1-m2);</span><br><span class="line">W=W./norm(W)</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line">x=<span class="built_in">randn</span>(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">%待判样本</span></span><br><span class="line">y0=W*(m1+m2)'/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">if</span> W*x'&gt;y0</span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">'待判样本属于第一类'</span>)</span><br><span class="line">    <span class="built_in">hold</span> on,<span class="built_in">plot</span>(x(<span class="number">1</span>),x(<span class="number">2</span>),<span class="string">'r+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">10</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">'待判样本属于第二类'</span>)</span><br><span class="line">    <span class="built_in">hold</span> on,<span class="built_in">plot</span>(x(<span class="number">1</span>),x(<span class="number">2</span>),<span class="string">'b+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">10</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">legend</span>(<span class="string">'Cluster 1'</span>,<span class="string">'Cluster 2'</span>,<span class="string">'x'</span>,<span class="string">'Location'</span>,<span class="string">'NW'</span>)</span><br><span class="line"><span class="comment">% =================画投影直线=====================</span></span><br><span class="line">X1=<span class="number">-8</span>:<span class="number">0.05</span>:<span class="number">8</span>;</span><br><span class="line">X2=(W(<span class="number">2</span>)/W(<span class="number">1</span>))*X1<span class="number">-6</span>;</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(X1,X2,<span class="string">'k'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>);</span><br><span class="line"><span class="comment">% ================求投影直线上的阈值点============</span></span><br><span class="line">x0=W(<span class="number">1</span>)*(y0)/W(<span class="number">2</span>);</span><br><span class="line">y0=W(<span class="number">2</span>)^<span class="number">2</span>*y0<span class="number">-6</span>*W(<span class="number">1</span>)^<span class="number">2</span>+W(<span class="number">1</span>)*W(<span class="number">2</span>)*x0;</span><br><span class="line">x0=(y0+<span class="number">6</span>)*W(<span class="number">1</span>)/W(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(x0,y0,<span class="string">'ro'</span>,<span class="string">'MarkerSize'</span>,<span class="number">10</span>);</span><br><span class="line"><span class="comment">% =============求待判样本在投影直线上的投影点==============</span></span><br><span class="line">y1=W(<span class="number">1</span>)^<span class="number">2</span>*x(<span class="number">1</span>)+<span class="number">6</span>*W(<span class="number">1</span>)*W(<span class="number">2</span>)+W(<span class="number">1</span>)*W(<span class="number">2</span>)*x(<span class="number">2</span>);</span><br><span class="line">y2=W(<span class="number">2</span>)/W(<span class="number">1</span>)*y1<span class="number">-6</span>;</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(y1,y2,<span class="string">'r.'</span>,<span class="string">'MarkerSize'</span>,<span class="number">30</span>);</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>([x(<span class="number">1</span>) y1],[x(<span class="number">2</span>) y2],<span class="string">'g'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -482,7 +440,7 @@ mjx-container[display="true"] + br {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://canoepassed.top/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/" title="RSA离散对数攻击">http://canoepassed.top/2024/03/06/Crypto/RSA离散对数攻击/</a>
+    <a href="http://canoepassed.top/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%9F%BA%E4%BA%8Efisher%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/" title="matlab基于fisher算法分类">http://canoepassed.top/2024/05/12/数学建模/分类与判别分析/matlab基于fisher算法分类/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -512,7 +470,7 @@ mjx-container[display="true"] + br {
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/RSA/" rel="tag"># RSA</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag"># 数学建模</a>
           </div>
 
         
@@ -521,12 +479,12 @@ mjx-container[display="true"] + br {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/03/03/Crypto/RSA%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC/" rel="prev" title="RSA攻击脚本">
-      <i class="fa fa-chevron-left"></i> RSA攻击脚本
+    <a href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/" rel="prev" title="matlab近邻法分类">
+      <i class="fa fa-chevron-left"></i> matlab近邻法分类
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/" rel="next" title="matlab近邻法分类">
-      matlab近邻法分类 <i class="fa fa-chevron-right"></i>
+    <a href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%BF%AB%E9%80%9F%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/" rel="next" title="matlab快速近邻法分类">
+      matlab快速近邻法分类 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -604,7 +562,6 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">离散对数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%80%A7%E8%B4%A8"><span class="nav-number">1.2.</span> <span class="nav-text">一些性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">离散对数问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%B1%82%E8%A7%A3%E6%96%B9%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">离散对数求解方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="nav-number">1.4.1.</span> <span class="nav-text">暴力破解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#baby-step-giant-step"><span class="nav-number">1.4.2.</span> <span class="nav-text">Baby-step giant-step</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pollards-%CF%81-algorithm"><span class="nav-number">1.4.3.</span> <span class="nav-text">Pollard’s ρ algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pollards-kangaroo-algorithm"><span class="nav-number">1.4.4.</span> <span class="nav-text">Pollard’s kangaroo algorithm</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
