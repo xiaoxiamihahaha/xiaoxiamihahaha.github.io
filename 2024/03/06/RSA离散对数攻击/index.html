@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"canoepassed.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="离散对数 基本定义  在了解离散对数时，我们先来了解几个基本定义。  定义 1 在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y&#x3D;gk，我们称 k 为 y 在群 G 中的对数。 定义 2 设 m≥1，(a,m)&#x3D;1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。  定义 3 当">
+  <meta name="description" content="离散对数基本定义 \在了解离散对数时，我们先来了解几个基本定义。\ 定义 1 在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y&#x3D;gk，我们称 k 为 y 在群 G 中的对数。 定义 2 设 m≥1，(a,m)&#x3D;1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。\ 定义 3 当 δm(a)&#x3D;φ(m)时">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA离散对数攻击">
-<meta property="og:url" content="http://canoepassed.top/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/index.html">
+<meta property="og:url" content="http://canoepassed.top/2024/03/06/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/index.html">
 <meta property="og:site_name" content="su的ctfer进阶之路">
-<meta property="og:description" content="离散对数 基本定义  在了解离散对数时，我们先来了解几个基本定义。  定义 1 在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y&#x3D;gk，我们称 k 为 y 在群 G 中的对数。 定义 2 设 m≥1，(a,m)&#x3D;1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。  定义 3 当">
+<meta property="og:description" content="离散对数基本定义 \在了解离散对数时，我们先来了解几个基本定义。\ 定义 1 在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y&#x3D;gk，我们称 k 为 y 在群 G 中的对数。 定义 2 设 m≥1，(a,m)&#x3D;1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。\ 定义 3 当 δm(a)&#x3D;φ(m)时">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-06T12:58:48.000Z">
 <meta property="article:modified_time" content="2024-05-12T07:06:05.763Z">
@@ -36,7 +36,7 @@
 <meta property="article:tag" content="RSA">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://canoepassed.top/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/">
+<link rel="canonical" href="http://canoepassed.top/2024/03/06/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/">
 
 
 <script id="page-configurations">
@@ -311,7 +311,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/">
+    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/03/06/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -361,8 +361,8 @@ mjx-container[display="true"] + br {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/03/06/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/06/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -391,71 +391,34 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="离散对数">离散对数</h1>
-<h2 id="基本定义">基本定义<br>
-</h2>
-<p>在了解离散对数时，我们先来了解几个基本定义。<br>
-</p>
+        <h1 id="离散对数"><a href="#离散对数" class="headerlink" title="离散对数"></a>离散对数</h1><h2 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义 \"></a>基本定义 \</h2><p>在了解离散对数时，我们先来了解几个基本定义。\</p>
 <p><strong>定义 1</strong></p>
 <p>在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y=gk，我们称 k 为 y 在群 G 中的对数。</p>
 <p><strong>定义 2</strong></p>
-<p>设 m≥1，(a,m)=1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。<br>
-</p>
+<p>设 m≥1，(a,m)=1 ，使得 ad≡1(modm) 成立的最小正整数 d 称为 a 对模 m 的指数或者阶，我们一般将其记为 δm(a)。\</p>
 <p><strong>定义 3</strong></p>
-<p>当 δm(a)=φ(m)时，称 a 是模 m 的原根，简称 m 的原根。<br>
-</p>
+<p>当 δm(a)=φ(m)时，称 a 是模 m 的原根，简称 m 的原根。\</p>
 <span id="more"></span>
-<h2 id="一些性质">一些性质<br>
-</h2>
-<p><strong>性质 1</strong><br>
-</p>
-<p>使得 ad≡1(modm)成立的最小正整数 d ，必有d∣φ(m)。<br>
-</p>
-<p><strong>性质 2</strong><br>
-</p>
-<p>模 m剩余系存在原根的充要条件是 m=2,4,pα,2pα ，其中 p 为奇素数， α为正整数。<br>
-</p>
-<h2 id="离散对数问题">离散对数问题<br>
-</h2>
-<p>已知 g,p,y，对于方程 y≡gx(modp) ，求解 x 是一个难解问题。但是当 p 具有一定的特性时就可能可以求解，比如，这个群的阶是一个光滑数。正是上述这个问题构成了目前很大一部分现代密码学，包括 Diffie–Hellman 密钥交换， ElGamal 算法，ECC 等。<br>
-</p>
-<h2 id="离散对数求解方式">离散对数求解方式<br>
-</h2>
-<h3 id="暴力破解">暴力破解<br>
-</h3>
-<p>给定 y≡gx(modp) ，我们可以暴力枚举 x 从而得到真正的 x的值。<br>
-</p>
-<h3 id="baby-step-giant-step">Baby-step giant-step<br>
-</h3>
-<p>这一方法通常被称为小步大步法，这一方法使用了中间相遇攻击的思想。<br>
-</p>
-<p>我们可以令 x=im+j，其中 m=⌈√n⌉ ，那么整数 i 和 j 都在 0 到 m 的范围内。<br>
-</p>
-<p>因此 y=gx=gim+j<br>
-</p>
-<p>也就是y(g−m)i=gj<br>
-</p>
-<p>那么我们就可以枚举所有的 j 并进行计算，并将其存储到一个集合 S 中，然后我们再次枚举 i，计算 y(g−m)i，一旦我们发现计算的结果在集合 S 中，则说明我们得到了一个碰撞，进而得到了 i 和 j。<br>
-</p>
-<p>这显然是一个时间与空间的折中的方式，我们将一个 O(n)的时间复杂度，O(1) 空间复杂度的算法转换为了一个O(√n) 的时间复杂度O(√n) 的空间复杂度的算法。<br>
-</p>
-<p>其中<br>
-</p>
+<h2 id="一些性质"><a href="#一些性质" class="headerlink" title="一些性质 \"></a>一些性质 \</h2><p><strong>性质 1</strong>  \</p>
+<p>使得 ad≡1(modm)成立的最小正整数 d ，必有d∣φ(m)。\</p>
+<p><strong>性质 2</strong> \</p>
+<p>模 m剩余系存在原根的充要条件是 m=2,4,pα,2pα ，其中 p 为奇素数， α为正整数。\</p>
+<h2 id="离散对数问题"><a href="#离散对数问题" class="headerlink" title="离散对数问题 \"></a>离散对数问题 \</h2><p>已知 g,p,y，对于方程 y≡gx(modp) ，求解 x 是一个难解问题。但是当 p 具有一定的特性时就可能可以求解，比如，这个群的阶是一个光滑数。正是上述这个问题构成了目前很大一部分现代密码学，包括 Diffie–Hellman 密钥交换， ElGamal 算法，ECC 等。\</p>
+<h2 id="离散对数求解方式"><a href="#离散对数求解方式" class="headerlink" title="离散对数求解方式 \"></a>离散对数求解方式 \</h2><h3 id="暴力破解"><a href="#暴力破解" class="headerlink" title="暴力破解  \"></a>暴力破解  \</h3><p>给定 y≡gx(modp)  \，我们可以暴力枚举 x 从而得到真正的 x的值。\</p>
+<h3 id="Baby-step-giant-step"><a href="#Baby-step-giant-step" class="headerlink" title="Baby-step giant-step  \"></a>Baby-step giant-step  \</h3><p>这一方法通常被称为小步大步法，这一方法使用了中间相遇攻击的思想。\</p>
+<p>我们可以令 x=im+j，其中 m=⌈√n⌉ ，那么整数 i 和 j 都在 0 到 m 的范围内。\</p>
+<p>因此  y=gx=gim+j \</p>
+<p> 也就是y(g−m)i=gj \</p>
+<p>那么我们就可以枚举所有的 j 并进行计算，并将其存储到一个集合 S 中，然后我们再次枚举 i，计算 y(g−m)i，一旦我们发现计算的结果在集合 S 中，则说明我们得到了一个碰撞，进而得到了 i 和 j。\</p>
+<p>这显然是一个时间与空间的折中的方式，我们将一个 O(n)的时间复杂度，O(1) 空间复杂度的算法转换为了一个O(√n) 的时间复杂度O(√n) 的空间复杂度的算法。\</p>
+<p>其中 \</p>
 <ul>
-<li>每一次 j 的增加表示 “baby-step”，一次乘上 g。<br>
-</li>
+<li>每一次 j 的增加表示 “baby-step”，一次乘上 g。\</li>
 </ul>
-<p>每一次 i 的增加表示 “giant-step”，一次乘上 g−m。<br>
-</p>
+<p>每一次 i 的增加表示 “giant-step”，一次乘上 g−m。\</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def bsgs(g, y, p):</span><br><span class="line">    m = int(ceil(sqrt(p - 1)))</span><br><span class="line">    S = {pow(g, j, p): j for j in range(m)}</span><br><span class="line">    gs = pow(g, p - 1 - m, p)</span><br><span class="line">    for i in range(m):</span><br><span class="line">        if y in S:</span><br><span class="line">            return i * m + S[y]</span><br><span class="line">        y = y * gs % p</span><br><span class="line">    return None</span><br></pre></td></tr></table></figure>
-<h3 id="pollards-ρ-algorithm">Pollard’s ρ algorithm<br>
-</h3>
-<p>我们可以以O(√n) 的时间复杂度和O(1) 的空间复杂度来解决上述问题。具体原理请自行谷歌。<br>
-</p>
-<h3 id="pollards-kangaroo-algorithm">Pollard’s kangaroo algorithm<br>
-</h3>
-<p>如果我们知道 x 的范围为 a≤x≤b，那么我们可以以O(√b−a) 的时间复杂度解决上述问题。具体原理请自行谷歌。<br>
-</p>
+<h3 id="Pollard’s-ρ-algorithm"><a href="#Pollard’s-ρ-algorithm" class="headerlink" title="Pollard’s ρ algorithm \"></a>Pollard’s ρ algorithm \</h3><p>我们可以以O(√n) 的时间复杂度和O(1) 的空间复杂度来解决上述问题。具体原理请自行谷歌。  \</p>
+<h3 id="Pollard’s-kangaroo-algorithm"><a href="#Pollard’s-kangaroo-algorithm" class="headerlink" title="Pollard’s kangaroo algorithm \"></a>Pollard’s kangaroo algorithm \</h3><p>如果我们知道 x 的范围为 a≤x≤b，那么我们可以以O(√b−a) 的时间复杂度解决上述问题。具体原理请自行谷歌。\</p>
 
     </div>
 
@@ -501,7 +464,7 @@ mjx-container[display="true"] + br {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://canoepassed.top/2024/03/06/Crypto/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/" title="RSA离散对数攻击">http://canoepassed.top/2024/03/06/Crypto/RSA离散对数攻击/</a>
+    <a href="http://canoepassed.top/2024/03/06/RSA%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%94%BB%E5%87%BB/" title="RSA离散对数攻击">http://canoepassed.top/2024/03/06/RSA离散对数攻击/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -540,11 +503,11 @@ mjx-container[display="true"] + br {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/03/03/Crypto/RSA%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC/" rel="prev" title="RSA攻击脚本">
+    <a href="/2024/03/03/RSA%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC/" rel="prev" title="RSA攻击脚本">
       <i class="fa fa-chevron-left"></i> RSA攻击脚本
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/matlab%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/" rel="next" title="matlab近邻法分类">
+    <a href="/2024/05/12/matlab%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/" rel="next" title="matlab近邻法分类">
       matlab近邻法分类 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -623,15 +586,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">离散对数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义
-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%80%A7%E8%B4%A8"><span class="nav-number">1.2.</span> <span class="nav-text">一些性质
-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">离散对数问题
-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%B1%82%E8%A7%A3%E6%96%B9%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">离散对数求解方式
-</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="nav-number">1.4.1.</span> <span class="nav-text">暴力破解
-</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#baby-step-giant-step"><span class="nav-number">1.4.2.</span> <span class="nav-text">Baby-step giant-step
-</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pollards-%CF%81-algorithm"><span class="nav-number">1.4.3.</span> <span class="nav-text">Pollard’s ρ algorithm
-</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pollards-kangaroo-algorithm"><span class="nav-number">1.4.4.</span> <span class="nav-text">Pollard’s kangaroo algorithm
-</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">离散对数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义 \</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%80%A7%E8%B4%A8"><span class="nav-number">1.2.</span> <span class="nav-text">一些性质 \</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">离散对数问题 \</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%B1%82%E8%A7%A3%E6%96%B9%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">离散对数求解方式 \</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="nav-number">1.4.1.</span> <span class="nav-text">暴力破解  \</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Baby-step-giant-step"><span class="nav-number">1.4.2.</span> <span class="nav-text">Baby-step giant-step  \</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pollard%E2%80%99s-%CF%81-algorithm"><span class="nav-number">1.4.3.</span> <span class="nav-text">Pollard’s ρ algorithm \</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pollard%E2%80%99s-kangaroo-algorithm"><span class="nav-number">1.4.4.</span> <span class="nav-text">Pollard’s kangaroo algorithm \</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
