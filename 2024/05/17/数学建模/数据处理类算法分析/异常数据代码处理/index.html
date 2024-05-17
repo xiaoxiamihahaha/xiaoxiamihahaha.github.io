@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"canoepassed.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.马氏距离法剔除异常样本 mashidistance.m 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859load &#39;shuju&#39; %导入数据，行为样本，列为特征X&#x3D;shuju; %赋值给Xu&#x3D;mean(X); %求均值[m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异常数据代码处理">
+<meta property="og:url" content="http://canoepassed.top/2024/05/17/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/%E5%BC%82%E5%B8%B8%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="su的ctfer进阶之路">
+<meta property="og:description" content="1.马氏距离法剔除异常样本 mashidistance.m 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859load &#39;shuju&#39; %导入数据，行为样本，列为特征X&#x3D;shuju; %赋值给Xu&#x3D;mean(X); %求均值[m">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-17T13:22:54.000Z">
+<meta property="article:modified_time" content="2024-05-17T14:03:22.588Z">
+<meta property="article:author" content="小虾米">
+<meta property="article:tag" content="数学建模">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://canoepassed.top/2024/05/17/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/%E5%BC%82%E5%B8%B8%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>异常数据代码处理 | su的ctfer进阶之路</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/rss2.xml" title="su的ctfer进阶之路" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+        <a target="_blank" rel="noopener" href="https://github.com/xiaoxiamihahaha" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">su的ctfer进阶之路</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/05/17/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/%E5%BC%82%E5%B8%B8%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小虾米">
+      <meta itemprop="description" content="落花人独立，微雨燕双飞">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="su的ctfer进阶之路">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          异常数据代码处理
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-17 21:22:54 / 修改时间：22:03:22" itemprop="dateCreated datePublished" datetime="2024-05-17T21:22:54+08:00">2024-05-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数学建模数据处理类算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/17/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/%E5%BC%82%E5%B8%B8%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/17/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/%E5%BC%82%E5%B8%B8%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="马氏距离法剔除异常样本">1.马氏距离法剔除异常样本</h2>
+<h3 id="mashidistance.m">mashidistance.m</h3>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">load <span class="string">'shuju'</span> <span class="comment">%导入数据，行为样本，列为特征</span></span><br><span class="line"></span><br><span class="line">X=shuju; <span class="comment">%赋值给X</span></span><br><span class="line"></span><br><span class="line">u=<span class="built_in">mean</span>(X); <span class="comment">%求均值</span></span><br><span class="line"></span><br><span class="line">[m,n]=<span class="built_in">size</span>(X);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:m</span><br><span class="line"></span><br><span class="line">newdata=[X(<span class="built_in">i</span>,:);u]</span><br><span class="line"></span><br><span class="line">cov_w=cov(newdata);<span class="comment">%求协方差矩阵</span></span><br><span class="line"></span><br><span class="line">dist(<span class="built_in">i</span>)=(X(<span class="built_in">i</span>,:)-u)*cov_w*(X(<span class="built_in">i</span>,:)-u)'<span class="comment">%求出每个样本到u的马氏距离</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">[a,b]=<span class="built_in">sort</span>(dist);<span class="comment">%对马氏距离进行排序</span></span><br><span class="line"></span><br><span class="line">T=<span class="built_in">ceil</span>(m*<span class="number">0.02</span>)<span class="comment">%设置阀值</span></span><br><span class="line"></span><br><span class="line">Threshold=a(m-T);<span class="comment">%定为阀值</span></span><br><span class="line"></span><br><span class="line">clear T;</span><br><span class="line"></span><br><span class="line">len=<span class="built_in">length</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:len <span class="comment">%遍历，如果小于阀值,为正常点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> a(<span class="built_in">i</span>) &lt; Threshold</span><br><span class="line"></span><br><span class="line">inlier(<span class="built_in">i</span>) = [b(<span class="built_in">i</span>)];</span><br><span class="line"></span><br><span class="line">s=b(<span class="built_in">i</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">'正常点序列号：'</span>,num2str(s)])</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% inlier</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:len <span class="comment">%遍历，如果大于等于阀值为异常点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> a(<span class="built_in">i</span>)&gt;= Threshold</span><br><span class="line"></span><br><span class="line">outlier(<span class="built_in">i</span>) = [b(<span class="built_in">i</span>)];</span><br><span class="line"></span><br><span class="line">l=b(<span class="built_in">i</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">'离群点序列号：'</span>,num2str(l)])</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% outlier</span></span><br></pre></td></tr></table></figure>
+<h2 id="基于格拉布斯准则判断异常数据">2.基于格拉布斯准则判断异常数据</h2>
+<span id="more"></span>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">clc</span><br><span class="line">G1=[<span class="number">1.15</span>,<span class="number">1.46</span>,<span class="number">1.67</span>,<span class="number">1.82</span>,<span class="number">1.94</span>,<span class="number">2.03</span>,<span class="number">2.11</span>,<span class="number">2.18</span>,<span class="number">2.23</span>,<span class="number">2.29</span>,<span class="number">2.33</span>,<span class="number">2.37</span>,<span class="number">2.41</span>,<span class="number">2.44</span>,<span class="number">2.47</span>,<span class="number">2.50</span>,<span class="number">2.53</span>,<span class="number">2.56</span>]</span><br><span class="line">G2=[<span class="number">1.15</span>,<span class="number">1.49</span>,<span class="number">1.75</span>,<span class="number">1.94</span>,<span class="number">2.10</span>,<span class="number">2.22</span>,<span class="number">2.32</span>,<span class="number">2.41</span>,<span class="number">2.48</span>,<span class="number">2.55</span>,<span class="number">2.61</span>,<span class="number">2.66</span>,<span class="number">2.70</span>,<span class="number">2.74</span>,<span class="number">2.78</span>,<span class="number">2.82</span>,<span class="number">2.85</span>,<span class="number">2.85</span>]</span><br><span class="line">grubbstab=input(<span class="string">'Please input measuring datas:'</span>)</span><br><span class="line">g=input(<span class="string">'please input confidence level '</span>)</span><br><span class="line"><span class="keyword">if</span> g==<span class="number">0.99</span></span><br><span class="line">    G=G2</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">    G=G1</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">meangrubbstab =<span class="built_in">mean</span>(grubbstab)          </span><br><span class="line">stdgrubbstab=std(grubbstab) </span><br><span class="line">len=<span class="built_in">length</span>(grubbstab)</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:len</span><br><span class="line">  A(<span class="built_in">i</span>)=<span class="built_in">abs</span>(grubbstab(<span class="built_in">i</span>)-meangrubbstab)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">Max1=<span class="built_in">max</span>(A)</span><br><span class="line">location1=<span class="built_in">find</span>(A==Max1)</span><br><span class="line"><span class="keyword">if</span>    <span class="built_in">abs</span>(grubbstab(location1)-meangrubbstab)&lt; G(len<span class="number">-2</span>)*stdgrubbstab </span><br><span class="line">      <span class="built_in">disp</span>(<span class="string">'no wide error!'</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">       grubbstab(location1)=[]</span><br><span class="line">       A(location1)=[]</span><br><span class="line">       meangrubbstab =<span class="built_in">mean</span>(grubbstab)          </span><br><span class="line">       stdgrubbstab=std(grubbstab) </span><br><span class="line">       Max2=<span class="built_in">max</span>(A)</span><br><span class="line">       location2=<span class="built_in">find</span>(A==Max2)</span><br><span class="line">       len=<span class="built_in">length</span>(grubbstab)</span><br><span class="line">       <span class="keyword">if</span>    <span class="built_in">abs</span>(grubbstab(location2)-meangrubbstab)&lt; G(len<span class="number">-2</span>)*stdgrubbstab </span><br><span class="line">             <span class="built_in">disp</span>(<span class="string">'no more wide error!'</span>)</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">       grubbstab(location2)=[]</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="基于rpca异常值检测代码">3.基于RPCA异常值检测代码</h2>
+<h3 id="alm_sadal_smoothed.m">ALM_SADAL_smoothed.m</h3>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">out</span> = <span class="title">ALM_SADAL_smoothed</span><span class="params">(D, opts)</span></span></span><br><span class="line"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span><br><span class="line"><span class="comment">% This is a sample code for testing the algorithm in our paper </span></span><br><span class="line"><span class="comment">% ''Fast Alternating Linearization Methods for</span></span><br><span class="line"><span class="comment">%       Minimizing the Sum of Two Convex Functions'', Donald Goldfarb,</span></span><br><span class="line"><span class="comment">%       Shiqian Ma and Katya Scheinberg, Tech. Report, Columbia University,</span></span><br><span class="line"><span class="comment">%       2009 - 2010. Preprint available at: </span></span><br><span class="line"><span class="comment">%       http://arxiv.org/pdf/0912.4571v2.pdf</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% Author: Shiqian Ma</span></span><br><span class="line"><span class="comment">% Date  : Apr. 20, 2010 </span></span><br><span class="line"><span class="comment">% IEOR, Columbia University, Copyright (2010)</span></span><br><span class="line"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span><br><span class="line"></span><br><span class="line">[m,n] = <span class="built_in">size</span>(D);</span><br><span class="line">mu = opts.mu; sigma = opts.sigma; rho = opts.rho;</span><br><span class="line">Y = <span class="built_in">zeros</span>(m,n); gradgY = <span class="built_in">zeros</span>(m,n);</span><br><span class="line">X = D - Y; Dnorm = norm(D,<span class="string">'fro'</span>);</span><br><span class="line">Lambda = <span class="built_in">zeros</span>(m,n); sv = opts.sv;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> itr = <span class="number">1</span>: opts.maxitr</span><br><span class="line">    [U, <span class="built_in">gamma</span>, V] = svd(mu*Lambda-Y+D, <span class="string">'econ'</span>);</span><br><span class="line">    <span class="built_in">gamma</span> = <span class="built_in">diag</span>(<span class="built_in">gamma</span>);</span><br><span class="line">    gamma_new = <span class="built_in">gamma</span>-mu*<span class="built_in">gamma</span>./<span class="built_in">max</span>(<span class="built_in">gamma</span>,mu+sigma);</span><br><span class="line">    </span><br><span class="line">    X = U*<span class="built_in">diag</span>(gamma_new)*V';</span><br><span class="line">    Lambda = Lambda - (X+Y-D)/mu;</span><br><span class="line">    muY = mu;</span><br><span class="line">    B = Lambda - (X-D)/muY;</span><br><span class="line">    </span><br><span class="line">    Y = muY*B - muY*<span class="built_in">min</span>(rho, <span class="built_in">max</span>(-rho,muY*B/(sigma+muY)));</span><br><span class="line">    Lambda = Lambda - (X+Y-D)/muY;</span><br><span class="line"></span><br><span class="line">    StopCrit = norm(D-X-Y,<span class="string">'fro'</span>)/Dnorm;</span><br><span class="line">    fprintf(<span class="string">'iter: %d, crit:%3.2e\n'</span>, ...</span><br><span class="line">        itr, norm(D-X-Y,<span class="string">'fro'</span>)/norm(D,<span class="string">'fro'</span>));</span><br><span class="line"></span><br><span class="line">    mu = <span class="built_in">max</span>(opts.muf, mu*opts.eta_mu);</span><br><span class="line">    sigma = <span class="built_in">max</span>(opts.sigmaf, sigma*opts.eta_sigma);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> StopCrit &lt; opts.epsilon</span><br><span class="line">        out.X = X; out.Y = Y; out.iter = itr; out.StopCrit = StopCrit;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">out.X = X; out.Y = Y; out.iter = itr; out.StopCrit = StopCrit;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="getdata.m">getdata.m</h3>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">opts</span> = <span class="title">getdata</span><span class="params">(dataformat)</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> strcmp(dataformat,<span class="string">'surveillance-video-Hall'</span>)</span><br><span class="line">    load Hall_airport_1000_1496_497_144_176_gray.mat;</span><br><span class="line">    D = images(:,<span class="number">1</span>:<span class="number">200</span>); [n1,n2] = <span class="built_in">size</span>(images); <span class="comment">% imn1 = 144; imn2 = 176;</span></span><br><span class="line">    opts.D = D; opts.mu = norm(D)/<span class="number">1.25</span>;</span><br><span class="line">    Xs = D; Ys = D;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">opts.Xs = Xs;  opts.Ys = Ys;</span><br><span class="line">opts.n1 = n1; opts.n2 = n2;</span><br><span class="line">opts.sigma = <span class="number">1e-6</span>; opts.maxitr = <span class="number">500</span>; opts.rho = <span class="number">1</span>/<span class="built_in">sqrt</span>(n1); </span><br><span class="line">opts.eta_mu = <span class="number">2</span>/<span class="number">3</span>; opts.eta_sigma = <span class="number">2</span>/<span class="number">3</span>;</span><br><span class="line">opts.muf = <span class="number">1e-6</span>;</span><br><span class="line">opts.sigmaf = <span class="number">1e-6</span>;</span><br><span class="line">opts.epsilon = <span class="number">1e-7</span>;</span><br><span class="line">opts.sv = <span class="number">100</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="onerun.m">Onerun.m</h3>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span><br><span class="line"><span class="comment">% This is a sample code for testing the algorithm in our paper </span></span><br><span class="line"><span class="comment">% ''Fast Alternating Linearization Methods for</span></span><br><span class="line"><span class="comment">%       Minimizing the Sum of Two Convex Functions'', Donald Goldfarb,</span></span><br><span class="line"><span class="comment">%       Shiqian Ma and Katya Scheinberg, Tech. Report, Columbia University,</span></span><br><span class="line"><span class="comment">%       2009 - 2010. Preprint available at: </span></span><br><span class="line"><span class="comment">%       http://arxiv.org/pdf/0912.4571v2.pdf</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% Author: Shiqian Ma</span></span><br><span class="line"><span class="comment">% Date  : Apr. 20, 2010 </span></span><br><span class="line"><span class="comment">% IEOR, Columbia University, Copyright (2010)</span></span><br><span class="line"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% get data </span></span><br><span class="line">tic;</span><br><span class="line">dataformat = <span class="string">'surveillance-video-Hall'</span>;</span><br><span class="line"></span><br><span class="line">opts = getdata(dataformat); </span><br><span class="line">time_getdata = toc;</span><br><span class="line">fprintf(<span class="string">'%f seconds to get data ! \n'</span>, time_getdata);</span><br><span class="line"></span><br><span class="line"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span><br><span class="line"><span class="comment">%%%% Call ALM to solve the problem</span></span><br><span class="line">tic; out_ALM = ALM_SADAL_smoothed(opts.D,opts); time_ALM = toc;</span><br><span class="line">fprintf(<span class="string">'*******************************************************************\n'</span>);</span><br><span class="line"><span class="comment">%%%%%%%%% print stats %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span><br><span class="line">fprintf(<span class="string">'*******************************************************************\n'</span>);</span><br><span class="line">fprintf(<span class="string">'ALM  : iter: %d, StopCrit: %3.2e, time: %f\n'</span>, ...</span><br><span class="line">    out_ALM.iter, out_ALM.StopCrit, time_ALM);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% plot the images </span></span><br><span class="line">D = opts.D; X = out_ALM.X; Y = out_ALM.Y; </span><br><span class="line">imn1 = <span class="number">144</span>; imn2 = <span class="number">176</span>; ind1 = <span class="number">30</span>; ind2 = <span class="number">96</span>; ind3 = <span class="number">159</span>;</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>); imshow(<span class="built_in">reshape</span>(D(:,ind1),imn1,imn2),[]); axis off; title(<span class="string">'Video'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>); imshow(<span class="built_in">reshape</span>(X(:,ind1),imn1,imn2),[]); axis off; title(<span class="string">'Background'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>); imshow((<span class="built_in">reshape</span>(Y(:,ind1),imn1,imn2)),[]); axis off; title(<span class="string">'Foreground'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>); imshow(<span class="built_in">reshape</span>(D(:,ind2),imn1,imn2),[]); axis off; </span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>); imshow(<span class="built_in">reshape</span>(X(:,ind2),imn1,imn2),[]); axis off; </span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">6</span>); imshow((<span class="built_in">reshape</span>(Y(:,ind2),imn1,imn2)),[]); axis off; </span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">7</span>); imshow(<span class="built_in">reshape</span>(D(:,ind3),imn1,imn2),[]); axis off; </span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">8</span>); imshow(<span class="built_in">reshape</span>(X(:,ind3),imn1,imn2),[]); axis off; </span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">3</span>,<span class="number">9</span>); imshow((<span class="built_in">reshape</span>(Y(:,ind3),imn1,imn2)),[]); axis off; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+    
+     
+      <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+     
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="小虾米 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="小虾米 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小虾米
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://canoepassed.top/2024/05/17/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/%E5%BC%82%E5%B8%B8%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86/" title="异常数据代码处理">http://canoepassed.top/2024/05/17/数学建模/数据处理类算法分析/异常数据代码处理/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag"># 数学建模</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/05/17/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95/" rel="prev" title="常用的几种插值算法">
+      <i class="fa fa-chevron-left"></i> 常用的几种插值算法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/05/17/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/%E7%89%B9%E5%BE%81%E9%99%8D%E7%BB%B4%E3%80%81%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88%E3%80%81%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90%E7%AD%89%E5%A4%9A%E5%85%83%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90/" rel="next" title="特征降维、特征融合、相关分析等多元数据分析的典型相关分析">
+      特征降维、特征融合、相关分析等多元数据分析的典型相关分析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+            <li class="tab"><a href="#comment-livere">livere</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="valine-comments"></div>
+            </div>
+            <div class="tab-pane livere" id="comment-livere">
+              
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTI1NC8zNTcxNg=="></div>
+  </div>
+  
+            </div>
+        </div>
+      </div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A9%AC%E6%B0%8F%E8%B7%9D%E7%A6%BB%E6%B3%95%E5%89%94%E9%99%A4%E5%BC%82%E5%B8%B8%E6%A0%B7%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">1.马氏距离法剔除异常样本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mashidistance.m"><span class="nav-number">1.1.</span> <span class="nav-text">mashidistance.m</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A0%BC%E6%8B%89%E5%B8%83%E6%96%AF%E5%87%86%E5%88%99%E5%88%A4%E6%96%AD%E5%BC%82%E5%B8%B8%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">2.基于格拉布斯准则判断异常数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Erpca%E5%BC%82%E5%B8%B8%E5%80%BC%E6%A3%80%E6%B5%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">3.基于RPCA异常值检测代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#alm_sadal_smoothed.m"><span class="nav-number">3.1.</span> <span class="nav-text">ALM_SADAL_smoothed.m</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getdata.m"><span class="nav-number">3.2.</span> <span class="nav-text">getdata.m</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onerun.m"><span class="nav-number">3.3.</span> <span class="nav-text">Onerun.m</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小虾米"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">小虾米</p>
+  <div class="site-description" itemprop="description">落花人独立，微雨燕双飞</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaoxiamihahaha" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaoxiamihahaha" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小虾米</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">116k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:46</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'GICxaccZss6czDEI9aZo4eoA-gzGzoHsz',
+      appKey     : 'K94A40jVGsHC9ppBkw0Buv6C',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>
