@@ -1,0 +1,121 @@
+function [ ] = WY_FeatureExtraction3(NumOfImage)
+%输入：
+%NumOfImage    图片序号
+%输出：         无
+%作者：         WY
+    ImageName=strcat('image',num2str(NumOfImage),'_training');
+    DataFileName=strcat('E:\FeatureExtraction\',ImageName,'-9-ImageFeatureValue.mat');
+    load(DataFileName);
+    Area=[];
+    Perimeter=[];
+    Major=[];
+    Minor=[];
+    MajorVSMinor=[];
+    Eccentricity=[];
+    Circularity=[];
+    IGreenMean=[];
+    NormGreen=[];
+    IGreenMax=[];
+    IscMean=[];
+    NormIsc=[];
+    IscMax=[];
+    IMatched1Max=[];
+    IRedContrast=[];
+    IGreenContrast=[];
+    IBlueContrast=[];
+    IHueContrast=[];
+    IGreenGF1=[];
+    IGreenGF2=[];
+    IGreenGF4=[];
+    IGreenGF8=[];
+    IGreenGFStd1=[];
+    IGreenGFStd2=[];
+    IGreenGFStd4=[];
+    IGreenGFStd8=[];
+    CORMax=[];
+    CORMin=[];
+    CORMean=[];
+    SSEMax=[];
+    SSEMin=[];
+    SSEMean=[];
+    Solidity=[];
+    Extent=[];
+  for i=1:4:(size(Img.Area,2))
+    Area=[Area Img.Area(i)];
+    Perimeter=[Perimeter Img.Perimeter(i)];
+    Major=[Major Img.Major(i)];
+    Minor=[Minor Img.Minor(i)];
+    MajorVSMinor=[ MajorVSMinor Img.MajorVSMinor(i)];
+    Eccentricity=[Eccentricity Img.Eccentricity(i)];
+    Circularity=[Circularity Img.Circularity(i)];
+    IGreenMean=[IGreenMean Img.IGreenMean(i)];
+    NormGreen=[NormGreen Img.NormGreen(i)];
+    IGreenMax=[ IGreenMax Img.IGreenMax(i)];
+    IscMean=[IscMean Img.IscMean(i)];
+    NormIsc=[NormIsc Img.NormIsc(i)];
+    IscMax=[IscMax Img.IscMax(i)];
+    IMatched1Max=[IMatched1Max Img.IMatched1Max(i)];
+    IRedContrast=[IRedContrast Img.IRedContrast(i)];
+    IGreenContrast=[IGreenContrast Img.IGreenContrast(i)];
+    IBlueContrast=[IBlueContrast Img.IBlueContrast(i)];
+    IHueContrast=[IHueContrast Img.IHueContrast(i)];
+    IGreenGF1=[IGreenGF1 Img.IGreenGF1(i)];
+    IGreenGF2=[IGreenGF2 Img.IGreenGF2(i)];
+    IGreenGF4=[IGreenGF4 Img.IGreenGF4(i)];
+    IGreenGF8=[IGreenGF8 Img.IGreenGF8(i)];
+    IGreenGFStd1=[IGreenGFStd1 Img.IGreenGFStd1(i)];
+    IGreenGFStd2=[IGreenGFStd2 Img.IGreenGFStd2(i)];
+    IGreenGFStd4=[IGreenGFStd4 Img.IGreenGFStd4(i)];
+    IGreenGFStd8=[IGreenGFStd8 Img.IGreenGFStd8(i)];
+    CORMax=[ CORMax Img.CORMax(i)];
+    CORMin=[CORMin Img.CORMin(i)];
+    CORMean=[CORMean Img.CORMean(i)];
+    SSEMax=[SSEMax Img.SSEMax(i)];
+    SSEMin=[SSEMin Img.SSEMin(i)];
+    SSEMean=[SSEMean Img.SSEMean(i)];
+    Solidity=[Solidity Img.Solidity(i)];
+    Extent=[Extent Img.Extent(i)];
+    ResultFileName=strcat('E:\FeatureExtraction\',ImageName,'-10-ImageFeatureExtraction.mat');
+    save(ResultFileName);
+  end
+    s=size(Area,2);
+    Area(s+1)=[Img.Area(926)];
+    Perimeter(s+1)=[Img.Perimeter(926)];
+    Major(s+1)=[Img.Major(926)];
+    Minor(s+1)=[Img.Minor(926)];
+    MajorVSMinor(s+1)=[Img.MajorVSMinor(926)];
+    Eccentricity(s+1)=[Img.Eccentricity(926)];
+    Circularity(s+1)=[Img.Circularity(926)];
+    IGreenMean(s+1)=[Img.IGreenMean(926)];
+    NormGreen(s+1)=[Img.NormGreen(926)];
+    IGreenMax(s+1)=[Img.IGreenMax(926)];
+    IscMean(s+1)=[Img.IscMean(926)];
+    NormIsc(s+1)=[Img.NormIsc(926)];
+    IscMax(s+1)=[Img.IscMax(926)];
+    IMatched1Max(s+1)=[Img.IMatched1Max(926)];
+    IRedContrast(s+1)=[Img.IRedContrast(926)];
+    IGreenContrast(s+1)=[Img.IGreenContrast(926)];
+    IBlueContrast(s+1)=[Img.IBlueContrast(926)];
+    IHueContrast(s+1)=[Img.IHueContrast(926)];
+    IGreenGF1(s+1)=[Img.IGreenGF1(926)];
+    IGreenGF2(s+1)=[Img.IGreenGF2(926)];
+    IGreenGF4(s+1)=[Img.IGreenGF4(926)];
+    IGreenGF8(s+1)=[Img.IGreenGF8(926)];
+    IGreenGFStd1(s+1)=[Img.IGreenGFStd1(926)];
+    IGreenGFStd2(s+1)=[Img.IGreenGFStd2(926)];
+    IGreenGFStd4(s+1)=[Img.IGreenGFStd4(926)];
+    IGreenGFStd8(s+1)=[Img.IGreenGFStd8(926)];
+    CORMax(s+1)=[Img.CORMax(926)];
+    CORMin(s+1)=[Img.CORMin(926)];
+    CORMean(s+1)=[Img.CORMean(926)];
+    SSEMax(s+1)=[Img.SSEMax(926)];
+    SSEMin(s+1)=[Img.SSEMin(926)];
+    SSEMean(s+1)=[Img.SSEMean(926)];
+    Solidity(s+1)=[Img.Solidity(926)];
+    Extent(s+1)=[Img.Extent(926)];
+  ResultFileName=strcat('E:\FeatureExtraction\',ImageName,'-10-ImageFeatureExtraction.mat');
+  save(ResultFileName);
+end
+
+
+

@@ -1,0 +1,120 @@
+%第一部分：求熵值
+
+function [s,w]=shang(x)
+ 
+x=[ ];%这里输入自己的评价矩阵
+ 
+% 函数shang.m, 实现用熵值法求各指标(列）的权重及各数据行的得分
+
+% x为原始数据矩阵
+
+% s返回各行得分, w返回各列权重
+
+[n,m]=size(x); % n=23个国家, m=5个指标
+
+%% 数据的归一化处理
+
+% Matlab2010b,2011a,b版本都有bug,需如下处理. 其它版本直接用[X,ps]=mapminmax(x',0,1);即可
+
+[X,ps]=mapminmax(x',0,1);
+ 
+ps.ymin=0.002; % 归一化后的最小值
+
+ps.ymax=0.996; % 归一化后的最大值
+
+ps.yrange=ps.ymax-ps.ymin; % 归一化后的极差,若不调整该值, 则逆运算会出错
+
+X=mapminmax(x',ps);
+ 
+% mapminmax('reverse',xx,ps); % 反归一化, 回到原数据
+
+X=X';  % X为归一化后的数据
+ 
+%% 计算第j个指标下，第i个记录占该指标的比重p(i,j)
+ 
+for i=1:n
+     
+       for j=1:m
+         
+                  p(i,j)=X(i,j)/sum(X(:,j));
+     
+        end
+ 
+end
+ 
+%计算第j个指标的熵值e(j)
+ 
+k=1/log(n);
+ 
+for j=1:m
+    
+                e(j)=-k*sum(p(:,j).*log(p(:,j)));
+ 
+end
+ 
+d=ones(1,m)-e;  % 计算信息熵冗余度
+
+w=d./sum(d);    % 求权值w
+
+
+
+%第二部分：TOPSIS综合评价
+
+function [ output_args ] = TOPSIS(A,W)
+
+A=[];%这里输入自己的评价矩阵
+
+W=[]%这里输入上面求得的权重
+%A为决策矩阵，W为权值矩阵,M为正指标所在的列，N为负指标所在的列
+  
+[ma,na]=size(A);          %ma为A矩阵的行数，na为A矩阵的列数
+ 
+for i=1:na
+     
+               B(:,i)=A(:,i)*W(i);     %按列循环得到[加权标准化矩阵]
+
+end
+
+V1=zeros(1,na);            %初始化正理想解和负理想解
+
+V2=zeros(1,na);
+
+BMAX=max(B);               %取加权标准化矩阵每列的最大值和最小值
+
+BMIN=min(B);               %
+
+for i=1:na
+     
+            %if i<=size(M,2)        %循环得到理想解和负理想解，注意判断，不然会超个数
+     
+            V1(i)=BMAX(i);
+     
+            V2(i)=BMIN(i);
+     
+            %end
+     
+            %if i<=size(N,2)
+     
+            %V1(N(i))=BMIN(N(i));
+     
+             %V2(N(i))=BMAX(N(i));
+     
+              %end
+
+end
+
+for i=1:ma                 %按行循环求各方案的贴近度
+     
+                 C1=B(i,:)-V1;
+     
+                 S1(i)=norm(C1);        %S1,S2分别为离正理想点和负理想点的距离，用二阶范数
+     
+                 C2=B(i,:)-V2;
+     
+                 S2(i)=norm(C2);
+     
+                 T(i)=S2(i)/(S1(i)+S2(i));     %T为贴近度
+
+end
+
+output_args=T
