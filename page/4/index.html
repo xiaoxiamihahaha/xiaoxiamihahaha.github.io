@@ -307,6 +307,220 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%BA%94%E7%94%A8%E4%BA%8E%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小虾米">
+      <meta itemprop="description" content="落花人独立，微雨燕双飞">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="su的ctfer进阶之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%BA%94%E7%94%A8%E4%BA%8E%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">随机森林应用于分类问题</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-12 18:07:29 / 修改时间：21:42:56" itemprop="dateCreated datePublished" datetime="2024-05-12T18:07:29+08:00">2024-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB/" itemprop="url" rel="index"><span itemprop="name">数学建模分类与判别</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%BA%94%E7%94%A8%E4%BA%8E%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%BA%94%E7%94%A8%E4%BA%8E%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="rfmain-m"><a href="#rfmain-m" class="headerlink" title="rfmain.m"></a>rfmain.m</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">clear all;  </span><br><span class="line">rnode=cell(<span class="number">3</span>,<span class="number">1</span>);<span class="comment">%3*1的单元数组  </span></span><br><span class="line"><span class="comment">% rchild_value=cell(3,1);%3*1的单元数组  </span></span><br><span class="line"><span class="comment">% rchild_node_num=cell(3,1);%3*1的单元数组  </span></span><br><span class="line">sn=<span class="number">300</span>; <span class="comment">%随机可重复的抽取sn个样本  </span></span><br><span class="line">tn=<span class="number">10</span>;  <span class="comment">%森林中决策树的数目</span></span><br><span class="line">load(<span class="string">'aaa.mat'</span>);  </span><br><span class="line">n = <span class="built_in">size</span>(r,<span class="number">1</span>);</span><br><span class="line"><span class="comment">%% 样本训练采用随机森林和ID3算法构建决策森林  </span></span><br><span class="line">discrete_dim = [];</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:tn  </span><br><span class="line">    Sample_num=randi([<span class="number">1</span>,n],<span class="number">1</span>,sn);<span class="comment">%从1至1000内随机抽取sn个样本  </span></span><br><span class="line">    SData=r(Sample_num,:);  </span><br><span class="line">    [tree,discrete_dim]= train_C4_5(SData, <span class="number">5</span>, <span class="number">10</span>, discrete_dim);  </span><br><span class="line">    rnode{<span class="built_in">j</span>,<span class="number">1</span>}=tree;  </span><br><span class="line"><span class="keyword">end</span>  </span><br><span class="line">      </span><br><span class="line"><span class="comment">%% 样本测试  </span></span><br><span class="line">load(<span class="string">'aaa.mat'</span>);  </span><br><span class="line">T = r;</span><br><span class="line"><span class="comment">%TData=roundn(T,-1);  </span></span><br><span class="line">TData = roundn(T,<span class="number">-1</span>);  </span><br><span class="line"><span class="comment">%统计函数，对输入的测试向量进行投票，然后统计出选票最高的标签类型输出  </span></span><br><span class="line">result = statistics(tn, rnode, TData, discrete_dim);  </span><br><span class="line">gd = T(:,<span class="keyword">end</span>);</span><br><span class="line">len = <span class="built_in">length</span>(gd);</span><br><span class="line">count = sum(result==gd);</span><br><span class="line">fprintf(<span class="string">'共有%d个样本，判断正确的有%d\n'</span>,len,count);</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h2 id="statistics-m"><a href="#statistics-m" class="headerlink" title="statistics.m"></a>statistics.m</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%BA%94%E7%94%A8%E4%BA%8E%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+     
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%BF%AB%E9%80%9F%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小虾米">
+      <meta itemprop="description" content="落花人独立，微雨燕双飞">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="su的ctfer进阶之路">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%BF%AB%E9%80%9F%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/" class="post-title-link" itemprop="url">matlab快速近邻法分类</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-12 17:49:10 / 修改时间：21:43:08" itemprop="dateCreated datePublished" datetime="2024-05-12T17:49:10+08:00">2024-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB/" itemprop="url" rel="index"><span itemprop="name">数学建模分类与判别</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%BF%AB%E9%80%9F%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%BF%AB%E9%80%9F%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Condensing-m"><a href="#Condensing-m" class="headerlink" title="Condensing.m"></a>Condensing.m</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% =====================压缩剪辑近邻算法（Condensing）====================</span></span><br><span class="line"><span class="comment">% s:  划分的子集数目</span></span><br><span class="line"><span class="comment">% Xn: 当前样本集</span></span><br><span class="line"><span class="comment">% Xcur: 当前样本集经一次迭代后的样本集</span></span><br><span class="line"><span class="comment">% Xi: 当前考试集</span></span><br><span class="line"><span class="comment">% Xr: 当前参考集</span></span><br><span class="line"><span class="comment">% K:  退出控制条件，迭代K次，若没有样本被剪辑掉，则退出</span></span><br><span class="line"><span class="comment">% =====================================================================</span></span><br><span class="line">clear,close all;</span><br><span class="line">X = [<span class="built_in">randn</span>(<span class="number">300</span>,<span class="number">2</span>)+<span class="built_in">ones</span>(<span class="number">300</span>,<span class="number">2</span>);...</span><br><span class="line">     <span class="built_in">randn</span>(<span class="number">300</span>,<span class="number">2</span>)-<span class="built_in">ones</span>(<span class="number">300</span>,<span class="number">2</span>);];</span><br><span class="line">X(<span class="number">1</span>:<span class="number">300</span>,<span class="number">3</span>)=<span class="number">1</span>;X(<span class="number">301</span>:<span class="number">600</span>,<span class="number">3</span>)=<span class="number">2</span>;</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line"><span class="built_in">figure</span>, <span class="built_in">plot</span>(X(<span class="number">1</span>:<span class="number">300</span>,<span class="number">1</span>),X(<span class="number">1</span>:<span class="number">300</span>,<span class="number">2</span>),<span class="string">'r.'</span>)</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(X(<span class="number">301</span>:<span class="number">600</span>,<span class="number">1</span>),X(<span class="number">301</span>:<span class="number">600</span>,<span class="number">2</span>),<span class="string">'b.'</span>)</span><br><span class="line">title(<span class="string">'初始样本分布图'</span>)</span><br><span class="line"><span class="comment">% ================================================================</span></span><br><span class="line">s=<span class="number">3</span>;Xcur=X;loop=<span class="number">0</span>;Xold=X;K=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">while</span> loop&lt;K</span><br><span class="line">    Xn=Xcur;</span><br><span class="line">    Xold=Xcur;</span><br><span class="line">    Xcur=[];</span><br><span class="line">    [row1,col]=<span class="built_in">size</span>(Xn);</span><br><span class="line">    uu=unifrnd(<span class="number">0</span>,s,row1,<span class="number">1</span>);</span><br><span class="line">    uu=<span class="built_in">ceil</span>(uu);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:s   <span class="comment">%样本随机划分为s个子集</span></span><br><span class="line">        Xi=Xn((uu==<span class="built_in">i</span>),:);<span class="comment">%test set      </span></span><br><span class="line">        r=<span class="built_in">mod</span>(<span class="built_in">i</span>+<span class="number">1</span>,s);</span><br><span class="line">        <span class="keyword">if</span> r==<span class="number">0</span></span><br><span class="line">            r=s;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        Xr=Xn((uu==r),:);<span class="comment">%reference set     </span></span><br><span class="line">        [row,col]=<span class="built_in">size</span>(Xi);   </span><br><span class="line">        <span class="built_in">j</span>=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">j</span>&lt;=row</span><br><span class="line">            [rClass,jClass]=NNforCondense(Xr,Xi(<span class="built_in">j</span>,:));</span><br><span class="line">            <span class="keyword">if</span> rClass~=jClass</span><br><span class="line">                Xi(<span class="built_in">j</span>,:)=[];                </span><br><span class="line">                row=row<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">j</span>=<span class="built_in">j</span>+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">end</span>            </span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        Xcur=[Xcur;Xi];</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [oldRow,col]=<span class="built_in">size</span>(Xold);</span><br><span class="line">    [curRow,col]=<span class="built_in">size</span>(Xcur);</span><br><span class="line">    <span class="keyword">if</span> oldRow==curRow       </span><br><span class="line">        loop=loop+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        loop=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line"><span class="comment">% ================================================================</span></span><br><span class="line"><span class="comment">%把当前样本集Xcur中的元素按原类别分类</span></span><br><span class="line">[row,col]=<span class="built_in">size</span>(Xcur);</span><br><span class="line">Xcur1=[];Xcur2=[];</span><br><span class="line">tic</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:row    </span><br><span class="line">    <span class="keyword">if</span> Xcur(<span class="built_in">i</span>,<span class="number">3</span>)==<span class="number">1</span></span><br><span class="line">        Xcur1=[Xcur1;Xcur(<span class="built_in">i</span>,<span class="number">1</span>:<span class="number">2</span>)];       </span><br><span class="line">    <span class="keyword">elseif</span> Xcur(<span class="built_in">i</span>,<span class="number">3</span>)==<span class="number">2</span></span><br><span class="line">        Xcur2=[Xcur2;Xcur(<span class="built_in">i</span>,<span class="number">1</span>:<span class="number">2</span>)];     </span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">time1=toc;</span><br><span class="line"><span class="built_in">figure</span>, <span class="built_in">plot</span>(Xcur1(:,<span class="number">1</span>),Xcur1(:,<span class="number">2</span>),<span class="string">'r.'</span>)</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(Xcur2(:,<span class="number">1</span>),Xcur2(:,<span class="number">2</span>),<span class="string">'b.'</span>)</span><br><span class="line">title(<span class="string">'剪辑后样本分布图'</span>)</span><br><span class="line"><span class="comment">% ===================Condensing=================================</span></span><br><span class="line">Xstore=Xcur(<span class="number">1</span>,:);</span><br><span class="line">Xgab=Xcur(<span class="number">2</span>:row,:);</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span></span><br><span class="line">    Xoldstore=Xstore;</span><br><span class="line">    [row,col]=<span class="built_in">size</span>(Xgab);</span><br><span class="line">    <span class="built_in">j</span>=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">j</span>&lt;=row</span><br><span class="line">        [sClass,gClass]=NNforCondense(Xstore,Xgab(<span class="built_in">j</span>,:));</span><br><span class="line">        <span class="keyword">if</span> sClass~=gClass</span><br><span class="line">            Xstore=[Xstore;Xgab(<span class="built_in">j</span>,:)];</span><br><span class="line">            Xgab(<span class="built_in">j</span>,:)=[];</span><br><span class="line">            row=row<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">j</span>=<span class="built_in">j</span>+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [oldRow,col]=<span class="built_in">size</span>(Xoldstore);</span><br><span class="line">    [curRow,col]=<span class="built_in">size</span>(Xstore); </span><br><span class="line">    [gRow,rCol]=<span class="built_in">size</span>(Xgab);</span><br><span class="line">    <span class="keyword">if</span> oldRow==curRow | gRow*rCol==<span class="number">0</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">Xcurstore1=[];Xcurstore2=[];</span><br><span class="line">[curRow,col]=<span class="built_in">size</span>(Xstore); </span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:curRow</span><br><span class="line">    <span class="keyword">if</span> Xstore(<span class="built_in">i</span>,<span class="number">3</span>)==<span class="number">1</span></span><br><span class="line">        Xcurstore1=[Xcurstore1;Xstore(<span class="built_in">i</span>,<span class="number">1</span>:<span class="number">2</span>)];</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        Xcurstore2=[Xcurstore2;Xstore(<span class="built_in">i</span>,<span class="number">1</span>:<span class="number">2</span>)];</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">figure</span>, <span class="built_in">plot</span>(Xcurstore1(:,<span class="number">1</span>),Xcurstore1(:,<span class="number">2</span>),<span class="string">'r.'</span>)</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(Xcurstore2(:,<span class="number">1</span>),Xcurstore2(:,<span class="number">2</span>),<span class="string">'b.'</span>)</span><br><span class="line">axis([<span class="number">-4</span> <span class="number">5</span>,<span class="number">-4</span> <span class="number">5</span>]);</span><br><span class="line">title(<span class="string">'压缩后样本分布图'</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%BF%AB%E9%80%9F%E8%BF%91%E9%82%BB%E6%B3%95%E5%88%86%E7%B1%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+     
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://canoepassed.top/2024/05/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/matlab%E5%9F%BA%E4%BA%8Efisher%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -385,6 +599,7 @@ mjx-container[display="true"] + br {
 
       
           <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% ===============================Fisher===============================</span></span><br><span class="line"><span class="comment">% X:  训练样本</span></span><br><span class="line"><span class="comment">% x:  待判样本</span></span><br><span class="line"><span class="comment">% N:  每类样本数</span></span><br><span class="line"><span class="comment">% W： 权向量</span></span><br><span class="line"><span class="comment">% 对应课本Page88</span></span><br><span class="line"><span class="comment">% =====================================================================</span></span><br><span class="line">clear,close all;</span><br><span class="line">N=<span class="number">150</span>;</span><br><span class="line">X = [<span class="built_in">randn</span>(N,<span class="number">2</span>)+<span class="number">2</span>*<span class="built_in">ones</span>(N,<span class="number">2</span>);...</span><br><span class="line">     <span class="built_in">randn</span>(N,<span class="number">2</span>)<span class="number">-2</span>*<span class="built_in">ones</span>(N,<span class="number">2</span>);];</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line">fig=<span class="built_in">figure</span>;</span><br><span class="line"><span class="built_in">plot</span>(X(<span class="number">1</span>:N,<span class="number">1</span>),X(<span class="number">1</span>:N,<span class="number">2</span>),<span class="string">'r.'</span>)</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(X(N+<span class="number">1</span>:<span class="number">2</span>*N,<span class="number">1</span>),X(N+<span class="number">1</span>:<span class="number">2</span>*N,<span class="number">2</span>),<span class="string">'b.'</span>)</span><br><span class="line">title(<span class="string">'初始样本分布图'</span>),axis([<span class="number">-10</span>,<span class="number">10</span>,<span class="number">-10</span>,<span class="number">10</span>])</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line">m1=<span class="built_in">mean</span>(X(<span class="number">1</span>:N,:));</span><br><span class="line">m2=<span class="built_in">mean</span>(X(N+<span class="number">1</span>:<span class="number">2</span>*N,:));</span><br><span class="line">S1=<span class="number">0</span>;S2=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:N</span><br><span class="line">    S1=S1+(X(<span class="built_in">i</span>,:)-m1)*(X(<span class="built_in">i</span>,:)-m1)';</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=N+<span class="number">1</span>:<span class="number">2</span>*N</span><br><span class="line">    S1=S1+(X(<span class="built_in">i</span>,:)-m1)*(X(<span class="built_in">i</span>,:)-m1)';</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">Sw=S1+S2;</span><br><span class="line">W=inv(Sw)*(m1-m2);</span><br><span class="line">W=W./norm(W)</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line">x=<span class="built_in">randn</span>(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">%待判样本</span></span><br><span class="line">y0=W*(m1+m2)'/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">if</span> W*x'&gt;y0</span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">'待判样本属于第一类'</span>)</span><br><span class="line">    <span class="built_in">hold</span> on,<span class="built_in">plot</span>(x(<span class="number">1</span>),x(<span class="number">2</span>),<span class="string">'r+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">10</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">'待判样本属于第二类'</span>)</span><br><span class="line">    <span class="built_in">hold</span> on,<span class="built_in">plot</span>(x(<span class="number">1</span>),x(<span class="number">2</span>),<span class="string">'b+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">10</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">legend</span>(<span class="string">'Cluster 1'</span>,<span class="string">'Cluster 2'</span>,<span class="string">'x'</span>,<span class="string">'Location'</span>,<span class="string">'NW'</span>)</span><br><span class="line"><span class="comment">% =================画投影直线=====================</span></span><br><span class="line">X1=<span class="number">-8</span>:<span class="number">0.05</span>:<span class="number">8</span>;</span><br><span class="line">X2=(W(<span class="number">2</span>)/W(<span class="number">1</span>))*X1<span class="number">-6</span>;</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(X1,X2,<span class="string">'k'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>);</span><br><span class="line"><span class="comment">% ================求投影直线上的阈值点============</span></span><br><span class="line">x0=W(<span class="number">1</span>)*(y0)/W(<span class="number">2</span>);</span><br><span class="line">y0=W(<span class="number">2</span>)^<span class="number">2</span>*y0<span class="number">-6</span>*W(<span class="number">1</span>)^<span class="number">2</span>+W(<span class="number">1</span>)*W(<span class="number">2</span>)*x0;</span><br><span class="line">x0=(y0+<span class="number">6</span>)*W(<span class="number">1</span>)/W(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(x0,y0,<span class="string">'ro'</span>,<span class="string">'MarkerSize'</span>,<span class="number">10</span>);</span><br><span class="line"><span class="comment">% =============求待判样本在投影直线上的投影点==============</span></span><br><span class="line">y1=W(<span class="number">1</span>)^<span class="number">2</span>*x(<span class="number">1</span>)+<span class="number">6</span>*W(<span class="number">1</span>)*W(<span class="number">2</span>)+W(<span class="number">1</span>)*W(<span class="number">2</span>)*x(<span class="number">2</span>);</span><br><span class="line">y2=W(<span class="number">2</span>)/W(<span class="number">1</span>)*y1<span class="number">-6</span>;</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(y1,y2,<span class="string">'r.'</span>,<span class="string">'MarkerSize'</span>,<span class="number">30</span>);</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>([x(<span class="number">1</span>) y1],[x(<span class="number">2</span>) y2],<span class="string">'g'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -484,6 +699,7 @@ mjx-container[display="true"] + br {
 
       
           <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% ====================K－近邻法(KNN)=================================</span></span><br><span class="line"><span class="comment">% X:  训练样本</span></span><br><span class="line"><span class="comment">% x:  待判样本</span></span><br><span class="line"><span class="comment">% K:  近邻数目 </span></span><br><span class="line"><span class="comment">% flag1: 记录K个最近邻中属于第一类的个数</span></span><br><span class="line"><span class="comment">% flag2: 记录K个最近邻中属于第二类的个数</span></span><br><span class="line"><span class="comment">% ===================================================================</span></span><br><span class="line">clear,close all;</span><br><span class="line">N=<span class="number">150</span>;</span><br><span class="line">X = [<span class="built_in">randn</span>(N,<span class="number">2</span>)+<span class="number">2</span>*<span class="built_in">ones</span>(N,<span class="number">2</span>);...</span><br><span class="line">     <span class="built_in">randn</span>(N,<span class="number">2</span>)<span class="number">-2</span>*<span class="built_in">ones</span>(N,<span class="number">2</span>);];</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line">fig=<span class="built_in">figure</span>;</span><br><span class="line"><span class="built_in">plot</span>(X(<span class="number">1</span>:N,<span class="number">1</span>),X(<span class="number">1</span>:N,<span class="number">2</span>),<span class="string">'r.'</span>)</span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(X(N+<span class="number">1</span>:<span class="number">2</span>*N,<span class="number">1</span>),X(N+<span class="number">1</span>:<span class="number">2</span>*N,<span class="number">2</span>),<span class="string">'b.'</span>)</span><br><span class="line">title(<span class="string">'初始样本分布图'</span>),axis([<span class="number">-10</span>,<span class="number">10</span>,<span class="number">-10</span>,<span class="number">10</span>])</span><br><span class="line"><span class="comment">% ====================================================================</span></span><br><span class="line">x=<span class="built_in">randn</span>(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">%待判样本</span></span><br><span class="line"><span class="built_in">hold</span> on,<span class="built_in">plot</span>(x(<span class="number">1</span>),x(<span class="number">2</span>),<span class="string">'m+'</span>,<span class="string">'MarkerSize'</span>,<span class="number">10</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">2</span>*N</span><br><span class="line">    dist(<span class="built_in">i</span>)=norm(x-X(<span class="built_in">i</span>,:));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">[Sdist,index]=<span class="built_in">sort</span>(dist,<span class="string">'ascend'</span>);</span><br><span class="line">K=<span class="number">5</span>; <span class="comment">%近邻数目 </span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:K</span><br><span class="line">    <span class="built_in">hold</span> on,<span class="built_in">plot</span>(X(index(<span class="built_in">i</span>),<span class="number">1</span>),X(index(<span class="built_in">i</span>),<span class="number">2</span>),<span class="string">'ko'</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">legend</span>(<span class="string">'Cluster 1'</span>,<span class="string">'Cluster 2'</span>,<span class="string">'x'</span>,<span class="string">'Location'</span>,<span class="string">'NW'</span>)</span><br><span class="line">flag1=<span class="number">0</span>;flag2=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:K</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">ceil</span>(index(<span class="built_in">i</span>)/N)==<span class="number">1</span></span><br><span class="line">        flag1=flag1+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">elseif</span> <span class="built_in">ceil</span>(index(<span class="built_in">i</span>)/N)==<span class="number">2</span></span><br><span class="line">        flag2=flag2+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">disp</span>(strcat(<span class="string">'K近邻中包含'</span>,num2str(flag1),<span class="string">'个第一类样本'</span>));</span><br><span class="line"><span class="built_in">disp</span>(strcat(<span class="string">'K近邻中包含'</span>,num2str(flag2),<span class="string">'个第二类样本'</span>));</span><br><span class="line"><span class="keyword">if</span> flag1&gt;flag2</span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">'判断待判样本属于第一类'</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">'判断待判样本属于第二类'</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -588,9 +804,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="离散对数">离散对数</h1>
-<h2 id="基本定义">基本定义</h2>
-<p>在了解离散对数时，我们先来了解几个基本定义。</p>
+          <h1 id="离散对数"><a href="#离散对数" class="headerlink" title="离散对数"></a>离散对数</h1><h2 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h2><p>在了解离散对数时，我们先来了解几个基本定义。</p>
 <p><strong>定义 1</strong></p>
 <p>在群 G 中，g 为 G 的生成元，也就是说群 G 中每一个元素都可以写成 y=gk，我们称 k 为 y 在群 G 中的对数。</p>
 <p><strong>定义 2</strong></p>
@@ -708,8 +922,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="pq很接近">1.p,q很接近</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line">n=...</span><br><span class="line">c=...</span><br><span class="line">e=<span class="number">65537</span></span><br><span class="line">sqr=iroot(n,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):</span><br><span class="line">    <span class="keyword">if</span> n%(sqr+i)==<span class="number">0</span>:</span><br><span class="line">        p=sqr+i</span><br><span class="line">        q=n//p</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'p='</span>, p)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'q='</span>, q)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">d=invert(e,(p-<span class="number">1</span>)*(q-<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(powmod(c,d,n)))</span><br></pre></td></tr></table></figure>
+          <h2 id="1-p-q很接近"><a href="#1-p-q很接近" class="headerlink" title="1.p,q很接近"></a>1.p,q很接近</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line">n=...</span><br><span class="line">c=...</span><br><span class="line">e=<span class="number">65537</span></span><br><span class="line">sqr=iroot(n,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):</span><br><span class="line">    <span class="keyword">if</span> n%(sqr+i)==<span class="number">0</span>:</span><br><span class="line">        p=sqr+i</span><br><span class="line">        q=n//p</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'p='</span>, p)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'q='</span>, q)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">d=invert(e,(p-<span class="number">1</span>)*(q-<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(powmod(c,d,n)))</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/03/03/Crypto/RSA%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC/#more" rel="contents">
@@ -821,11 +1034,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="not_only_rsa">1.not_only_RSA:</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">n = <span class="number">6249734963373034215610144758924910630356277447014258270888329547267471837899275103421406467763122499270790512099702898939814547982931674247240623063334781529511973585977522269522704997379194673181703247780179146749499072297334876619475914747479522310651303344623434565831770309615574478274456549054332451773452773119453059618433160299319070430295124113199473337940505806777950838270849</span></span><br><span class="line">e = <span class="number">641747</span></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line"></span><br><span class="line">flag = flag + os.urandom(n.bit_length() // <span class="number">8</span> - <span class="built_in">len</span>(flag) - <span class="number">1</span>)</span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line"></span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'out.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{n = }</span>"</span>, file=f)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{e = }</span>"</span>, file=f)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{c = }</span>"</span>, file=f)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong><em>*n是一个质数5次方，可以求解1和C的根后进行组合出所有C的根，sage脚本如下：*</em></strong></p>
+          <h2 id="1-not-only-RSA"><a href="#1-not-only-RSA" class="headerlink" title="1.not_only_RSA:"></a>1.not_only_RSA:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">n = <span class="number">6249734963373034215610144758924910630356277447014258270888329547267471837899275103421406467763122499270790512099702898939814547982931674247240623063334781529511973585977522269522704997379194673181703247780179146749499072297334876619475914747479522310651303344623434565831770309615574478274456549054332451773452773119453059618433160299319070430295124113199473337940505806777950838270849</span></span><br><span class="line">e = <span class="number">641747</span></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line"></span><br><span class="line">flag = flag + os.urandom(n.bit_length() // <span class="number">8</span> - <span class="built_in">len</span>(flag) - <span class="number">1</span>)</span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line"></span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'out.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{n = }</span>"</span>, file=f)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{e = }</span>"</span>, file=f)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{c = }</span>"</span>, file=f)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em><strong>*n是一个质数5次方，可以求解1和C的根后进行组合出所有C的根，sage脚本如下：*</strong></em></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span>  long_to_bytes</span><br><span class="line">p=<span class="number">91027438112295439314606669837102361953591324472804851543344131406676387779969</span></span><br><span class="line">e = <span class="number">641747</span></span><br><span class="line">c = <span class="number">730024611795626517480532940587152891926416120514706825368440230330259913837764632826884065065554839415540061752397144140563698277864414584568812699048873820551131185796851863064509294123861487954267708318027370912496252338232193619491860340395824180108335802813022066531232025997349683725357024257420090981323217296019482516072036780365510855555146547481407283231721904830868033930943</span></span><br><span class="line">n=p^<span class="number">5</span></span><br><span class="line">K=Zmod(p^<span class="number">5</span>)</span><br><span class="line">a=K(c).nth_root(e)</span><br><span class="line">b=K(<span class="number">1</span>).nth_root(e)</span><br><span class="line">a=<span class="built_in">int</span>(a)</span><br><span class="line">b=<span class="built_in">int</span>(b)</span><br><span class="line"><span class="built_in">print</span>(b,a)</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(e)):</span><br><span class="line">  a=(a*b)%n</span><br><span class="line">  m=long_to_bytes(<span class="built_in">int</span>(a))</span><br><span class="line">  <span class="keyword">if</span> <span class="string">b"flag"</span> <span class="keyword">in</span> m:</span><br><span class="line">    <span class="built_in">print</span>(m)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#flag{c19c3ec0-d489-4bbb-83fc-bc0419a6822a}</span></span><br></pre></td></tr></table></figure>
-<h2 id="discrete_log">2.<strong>discrete_log：</strong></h2>
+
+<h2 id="2-discrete-log："><a href="#2-discrete-log：" class="headerlink" title="2.discrete_log："></a>2.<strong>discrete_log：</strong></h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/01/31/Crypto/%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%BC%BA%E7%BD%91%E6%9D%AFcrypto%E9%83%A8%E5%88%86wp/#more" rel="contents">
@@ -918,7 +1132,7 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>989</span>
+              <span>992</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -937,10 +1151,10 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一已知pqe以及密文c">一、已知p,q,e以及密文c</h2>
-<p>解密脚本:</p>
+          <h2 id="一、已知p-q-e以及密文c"><a href="#一、已知p-q-e以及密文c" class="headerlink" title="一、已知p,q,e以及密文c"></a>一、已知p,q,e以及密文c</h2><p>解密脚本:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *  #使用long_to_bytes函数</span><br><span class="line">from gmpy2 import * </span><br><span class="line"></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">c=...</span><br><span class="line">e = 65537</span><br><span class="line">n=p*q</span><br><span class="line">N=(p-1)*(q-1) #求解p,q的欧拉函数N</span><br><span class="line">d=gmpy2.invert(e,N) #求解模逆元</span><br><span class="line">m=pow(c,d,n) #解密</span><br><span class="line">flag=long_to_bytes(m) #将整数转换成字节序列</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
-<h2 id="二pq很接近">二、p,q很接近</h2>
+
+<h2 id="二、p-q很接近"><a href="#二、p-q很接近" class="headerlink" title="二、p,q很接近"></a>二、p,q很接近</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/12/17/Crypto/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/#more" rel="contents">
@@ -1052,12 +1266,9 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一rsa加解密流程">一、RSA加解密流程</h2>
-<p>要加密的信息为m，加密后的信息为c 1.生成两个非常大的质数p和q 2.n = p * q 3.计算欧拉函数值φ(n) ， φ(n) =(p-1)(q-1) 4.公钥参数e和私钥参数d，可由欧拉函数值计算出 公钥e： 1 &lt; e &lt; φ(n) e和φ(n)互质（为给定数值） 私钥d: e对于φ(n)的乘法逆元(模反元素)，e*d mod φ(n) ≡ 1 则ed-1≡ k φ(n)</p>
-<h4 id="加密方式">加密方式</h4>
-<p>c≡ <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="2.92ex" height="1.553ex" role="img" focusable="false" viewbox="0 -675.5 1290.5 686.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mi" transform="translate(911,363) scale(0.707)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"/></g></g></g></g></svg></mjx-container> mod n 规定m小于n ,(涉及到padding)</p>
-<h4 id="解密方式">解密方式</h4>
-<p>m≡<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.999ex" height="1.956ex" role="img" focusable="false" viewbox="0 -853.7 883.7 864.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"/></g><g data-mml-node="mi" transform="translate(466,363) scale(0.707)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"/></g></g></g></g></svg></mjx-container> mod n</p>
+          <h2 id="一、RSA加解密流程"><a href="#一、RSA加解密流程" class="headerlink" title="一、RSA加解密流程"></a>一、RSA加解密流程</h2><p>要加密的信息为m，加密后的信息为c<br>1.生成两个非常大的质数p和q<br>2.n = p * q<br>3.计算欧拉函数值φ(n) ， φ(n) =(p-1)(q-1)<br>4.公钥参数e和私钥参数d，可由欧拉函数值计算出<br>公钥e： 1 &lt; e &lt; φ(n) e和φ(n)互质（为给定数值）<br>私钥d: e对于φ(n)的乘法逆元(模反元素)，e*d mod φ(n) ≡ 1<br>则ed-1≡ k φ(n) </p>
+<h4 id="加密方式"><a href="#加密方式" class="headerlink" title="加密方式"></a>加密方式</h4><p>c≡ <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="2.92ex" height="1.553ex" role="img" focusable="false" viewbox="0 -675.5 1290.5 686.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mi" transform="translate(911,363) scale(0.707)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"/></g></g></g></g></svg></mjx-container> mod n<br>规定m小于n ,(涉及到padding)</p>
+<h4 id="解密方式"><a href="#解密方式" class="headerlink" title="解密方式"></a>解密方式</h4><p>m≡<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.999ex" height="1.956ex" role="img" focusable="false" viewbox="0 -853.7 883.7 864.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"/></g><g data-mml-node="mi" transform="translate(466,363) scale(0.707)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"/></g></g></g></g></svg></mjx-container> mod n</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/12/01/Crypto/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/#more" rel="contents">
@@ -1153,7 +1364,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1166,7 +1377,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1207,12 +1418,12 @@ mjx-container[display="true"] + br {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">217k</span>
+    <span title="站点总字数">225k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:18</span>
+    <span title="站点阅读时长">3:25</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1383,6 +1594,7 @@ $(document).ready(function() {
   
 
 
+
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
@@ -1410,7 +1622,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   }, window.Valine);
 });
 </script>
-
 
 </body>
 </html>

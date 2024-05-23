@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"canoepassed.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一、已知p,q,e以及密文c 解密脚本: 12345678910111213from Crypto.Util.number import *  #使用long_to_bytes函数from gmpy2 import * p&#x3D;...q&#x3D;...c&#x3D;...e &#x3D; 65537n&#x3D;p*qN&#x3D;(p-1)*(q-1) #求解p,q的欧拉函数Nd&#x3D;gmpy2.invert(e,N) #求解模逆元m&#x3D;pow(c">
+  <meta name="description" content="一、已知p,q,e以及密文c解密脚本: 12345678910111213from Crypto.Util.number import *  #使用long_to_bytes函数from gmpy2 import * p&#x3D;...q&#x3D;...c&#x3D;...e &#x3D; 65537n&#x3D;p*qN&#x3D;(p-1)*(q-1) #求解p,q的欧拉函数Nd&#x3D;gmpy2.invert(e,N) #求解模逆元m&#x3D;pow(c,d,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA基础攻击方式">
 <meta property="og:url" content="http://canoepassed.top/2023/12/17/Crypto/RSA%E5%9F%BA%E7%A1%80%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="su的ctfer进阶之路">
-<meta property="og:description" content="一、已知p,q,e以及密文c 解密脚本: 12345678910111213from Crypto.Util.number import *  #使用long_to_bytes函数from gmpy2 import * p&#x3D;...q&#x3D;...c&#x3D;...e &#x3D; 65537n&#x3D;p*qN&#x3D;(p-1)*(q-1) #求解p,q的欧拉函数Nd&#x3D;gmpy2.invert(e,N) #求解模逆元m&#x3D;pow(c">
+<meta property="og:description" content="一、已知p,q,e以及密文c解密脚本: 12345678910111213from Crypto.Util.number import *  #使用long_to_bytes函数from gmpy2 import * p&#x3D;...q&#x3D;...c&#x3D;...e &#x3D; 65537n&#x3D;p*qN&#x3D;(p-1)*(q-1) #求解p,q的欧拉函数Nd&#x3D;gmpy2.invert(e,N) #求解模逆元m&#x3D;pow(c,d,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-17T06:13:21.000Z">
 <meta property="article:modified_time" content="2024-05-12T07:48:35.853Z">
@@ -381,7 +381,7 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>989</span>
+              <span>992</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -400,16 +400,18 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一已知pqe以及密文c">一、已知p,q,e以及密文c</h2>
-<p>解密脚本:</p>
+        <h2 id="一、已知p-q-e以及密文c"><a href="#一、已知p-q-e以及密文c" class="headerlink" title="一、已知p,q,e以及密文c"></a>一、已知p,q,e以及密文c</h2><p>解密脚本:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *  #使用long_to_bytes函数</span><br><span class="line">from gmpy2 import * </span><br><span class="line"></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">c=...</span><br><span class="line">e = 65537</span><br><span class="line">n=p*q</span><br><span class="line">N=(p-1)*(q-1) #求解p,q的欧拉函数N</span><br><span class="line">d=gmpy2.invert(e,N) #求解模逆元</span><br><span class="line">m=pow(c,d,n) #解密</span><br><span class="line">flag=long_to_bytes(m) #将整数转换成字节序列</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
-<h2 id="二pq很接近">二、p,q很接近</h2>
-<span id="more"></span>
+
+<h2 id="二、p-q很接近"><a href="#二、p-q很接近" class="headerlink" title="二、p,q很接近"></a>二、p,q很接近</h2><span id="more"></span>
+
 <p>1.因为p,q很接近，所以p,q在n的平方根附近，此时可通过爆破求得p,q</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">from gmpy2 import *</span><br><span class="line">n=...</span><br><span class="line">c=...</span><br><span class="line">e=65537</span><br><span class="line">sqr=iroot(n,2) #iroot为gmpy2中的函数，用于求n次方根，此为求n的平方根</span><br><span class="line">for i in range(10000): </span><br><span class="line">    if n%(sqr+i)==0: #因为p，q很接近，所以p,q在sqr附近，此时可以爆破p</span><br><span class="line">        p=sqr+i</span><br><span class="line">        q=n//p</span><br><span class="line">        print('p=', p)</span><br><span class="line">        print('q=', q)</span><br><span class="line">        break</span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">d=invert(e,(p-1)*(q-1)) </span><br><span class="line">print(long_to_bytes(powmod(c,d,n)))</span><br></pre></td></tr></table></figure>
+
 <p>2.使用工具yafu分解求得p,q</p>
-<p>(yafu下载网址：https://sourceforge.net/projects/yafu/)，yafu使用方法 1.打开yafu安装目录，右键在终端中运行 2.输入.-x64.exe后回车， 3.输入factor(...),分解得到p,q 进行RSA解密，得到m，最后一步进行base64解密得到flag</p>
+<p>(yafu下载网址：<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/yafu/)%EF%BC%8Cyafu%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">https://sourceforge.net/projects/yafu/)，yafu使用方法</a><br>1.打开yafu安装目录，右键在终端中运行<br>2.输入.\yafu-x64.exe后回车，<br>3.输入factor(…),分解得到p,q<br>进行RSA解密，得到m，最后一步进行base64解密得到flag </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *  #使用long_to_bytes函数</span><br><span class="line">from gmpy2 import * </span><br><span class="line"></span><br><span class="line">p=...</span><br><span class="line">q=...</span><br><span class="line">c=...</span><br><span class="line">e=...</span><br><span class="line">n=p*q</span><br><span class="line">N=(p-1)*(q-1) #求解p,q的欧拉函数N</span><br><span class="line">d=gmpy2.invert(e,N) #求解模逆元</span><br><span class="line">m=pow(c,d,n) #解密</span><br><span class="line">flag=long_to_bytes(m) #将整数转换成字节序列</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -515,19 +517,19 @@ mjx-container[display="true"] + br {
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-valine">valine</a></li>
             <li class="tab"><a href="#comment-livere">livere</a></li>
+            <li class="tab"><a href="#comment-valine">valine</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane valine" id="comment-valine">
-              <div class="comments" id="valine-comments"></div>
-            </div>
             <div class="tab-pane livere" id="comment-livere">
               
   <div class="comments">
     <div id="lv-container" data-id="city" data-uid="MTAyMC81OTI1NC8zNTcxNg=="></div>
   </div>
   
+            </div>
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="valine-comments"></div>
             </div>
         </div>
       </div>
@@ -577,7 +579,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%B7%B2%E7%9F%A5pqe%E4%BB%A5%E5%8F%8A%E5%AF%86%E6%96%87c"><span class="nav-number">1.</span> <span class="nav-text">一、已知p,q,e以及密文c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8Cpq%E5%BE%88%E6%8E%A5%E8%BF%91"><span class="nav-number">2.</span> <span class="nav-text">二、p,q很接近</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%B7%B2%E7%9F%A5p-q-e%E4%BB%A5%E5%8F%8A%E5%AF%86%E6%96%87c"><span class="nav-number">1.</span> <span class="nav-text">一、已知p,q,e以及密文c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81p-q%E5%BE%88%E6%8E%A5%E8%BF%91"><span class="nav-number">2.</span> <span class="nav-text">二、p,q很接近</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -593,7 +595,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -606,7 +608,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -647,12 +649,12 @@ mjx-container[display="true"] + br {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">217k</span>
+    <span title="站点总字数">225k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:18</span>
+    <span title="站点阅读时长">3:25</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -822,6 +824,22 @@ $(document).ready(function() {
 
   
 
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
@@ -848,22 +866,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       serverURLs : ''
     });
   }, window.Valine);
-});
-</script>
-
-<script>
-NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
-  window.livereOptions = {
-    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
-  };
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-    if (typeof LivereTower === 'function') { return; }
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
 });
 </script>
 
